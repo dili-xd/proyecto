@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navbar-contenedor{
+    background-color: #ffa500;
+}
+.navbar-lista{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+
+    button{
+        background-color: transparent;
+        padding: 10px;
+        width:150px;
+        border-radius: 20px;
+    }
+}

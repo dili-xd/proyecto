@@ -1,8 +1,13 @@
-function Inicio(){
-    return(
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+function Inicio() {
+    return (
         <>
-        <h1>si</h1>
-    </>
+            <Navbar />
+            <Footer/>
+
+        </>
     )
 }
 export default Inicio;
