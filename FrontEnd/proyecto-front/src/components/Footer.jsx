@@ -4,20 +4,20 @@ function Footer() {
     <>
      <footer className="footer-contenedor">
             <ul >
-                <section>
-                    <li>a</li>
+                <section className='foder-lista'>
+                    <li>Contacto</li>
                     <img src="" alt="" />
                 </section>
-                <section>
-                    <li>b</li>
+                <section className='foder-lista'>
+                    <li>Sobre Nosotros</li>
                     <img src="" alt="" />
                 </section>
-                <section>
-                    <li>c</li>
+                <section className='foder-lista'>
+                    <li>Todos los derechos reservados</li>
                 </section>
-                <section>
-                    <li>d</li>
-                    <img src="" alt="" />
+                <section className='foder-lista'>
+                    <li>Ayuda</li>
+                    <img src="" alt="" /> 
                 </section>
 
             </ul>

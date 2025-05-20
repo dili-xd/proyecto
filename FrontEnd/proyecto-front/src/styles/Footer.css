@@ -9,9 +9,14 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #ffa500;;
+    background-color: #f9ca72;;
     color: rgb(8, 8, 8);
     padding: 1rem;
     text-align: center;
-    z-index: 1000;
+  }
+  .foder-lista{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    
   }

@@ -21,3 +21,7 @@
         border-radius: 20px;
     }
 }
+.titulo{
+    position: relative;
+    right: 400px;
+}
