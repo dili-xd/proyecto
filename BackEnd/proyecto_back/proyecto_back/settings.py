@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import timedelta
+from django.core.wsgi import get_wsgi_application
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'usuarios',
     'rest_framework',
     'corsheaders',
+    'usuarios',
+    'noticias',
+    'cursos',
+    'testimonios',
+
 ]
 CORS_ALLOW_ALL_ORIGINS=True
 
@@ -52,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsMiddLeare',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -84,11 +89,11 @@ WSGI_APPLICATION = 'proyecto_back.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'proyecto_bd',
+        'NAME': 'proyectofinal',
         'USER':'root',
         'PASSWORD':'root',
         'HOST':'localhost',
-        'PORT':'3006'
+        'PORT':'3306'
     }
 }
 
