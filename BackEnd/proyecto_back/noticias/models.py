@@ -7,3 +7,6 @@ class Noticias(models.Model):
     contenido = models.CharField(max_length=500)
     fecha_poblicacion=models.DateField()
     usuario= models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
+    def __str__(self):
+        return self.usuario.username 
+

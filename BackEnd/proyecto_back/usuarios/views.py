@@ -53,4 +53,24 @@ class EditarUsuarioView(APIView):
            educacion_academica=request.data.get('educacion_academica')  
 
            if not id:
-               return Response({'error':})
+               return Response({'error':'Se necesita el id'},status=400)
+           
+           try:
+               user=User.objects.get(id=id)
+           except User.DoesNotExist:
+               return Response({'error':'Usuario no existe'},status=400)
+           
+           if username:
+               user .username=username
+           if email:
+               user.email=email
+           if password:
+               user.set_password(password)
+           if educacion_academica:
+               user.User.educacion_Academica=educacion_academica
+
+           user.save()
+
+           return Response ({'message':'Usuario editado'},status=200)
+
+
