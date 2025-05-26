@@ -4,5 +4,5 @@ from .models import Noticias
 class NoticiasSerializer(serializers.ModelSerializer):
     class Meta:
         model=Noticias
-        fiedls=['id','contenido','fecha_poblicacion','usuario','usuario_nombre']
+        fiedls=['id','titulo', 'contenido','fecha_poblicacion','usuario','usuario_nombre']
         

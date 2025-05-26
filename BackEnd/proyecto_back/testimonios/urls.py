@@ -1,5 +1,5 @@
 from django.urls import path
 from .views import TestimonioCreateView
-urlpaterns=[
+urlpatterns=[
     path ('testimonio/',TestimonioCreateView.as_view())
 ]

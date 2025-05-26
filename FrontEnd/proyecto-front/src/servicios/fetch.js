@@ -10,6 +10,7 @@ async function posData(endpoint,obj) {
         const respuesta=await peticion.json()
         return respuesta
     } catch (error){
+        console.error(error);
 
     }    
 }
