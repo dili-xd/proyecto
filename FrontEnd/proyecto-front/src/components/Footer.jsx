@@ -3,7 +3,7 @@ function Footer() {
   return (
     <>
      <footer className="footer-contenedor">
-            <ul >
+            <ul className='lista-enlaces'>
                 <section className='foder-lista'>
                     <li>Contacto</li>
                     <img src="" alt="" />

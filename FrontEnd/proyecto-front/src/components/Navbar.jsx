@@ -4,7 +4,7 @@ function Navbar() {
         <>
            <nav className='navbar-contenedor'>
               <ul className='navbar-lista'>
-              <img src="" alt="" />
+              <img  alt="" />
 
               <h1 className='titulo' >Nombre Página</h1>
 

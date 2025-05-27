@@ -9,7 +9,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f9ca72;;
+    background-color:  #ffa500;
     color: rgb(8, 8, 8);
     padding: 1rem;
     text-align: center;
@@ -19,4 +19,10 @@
     justify-content: space-between;
     text-align: center;
     
+  }
+  .lista-enlaces{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }

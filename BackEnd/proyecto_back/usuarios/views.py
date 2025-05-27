@@ -40,8 +40,8 @@ class UsuarioLoginView(APIView):
         usuario=authenticate(username=username,password=password)
         token_refresh= RefreshToken.for_user(usuario)
         token_access=str(token_refresh.access_token)
-        if usuario is None:
-            return Response({'message':'Usuario logiado con exito','token':token_access}, status=401)
+        if usuario is not None:
+            return Response({'message':'Usuario logiado con exito','token':token_access}, status=200)
         else:
             return Response({'error':'Usuario invalido'},status=402)
     

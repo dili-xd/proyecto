@@ -1,0 +1,85 @@
+.contenedor-registro {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color:#eeeded;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: 'Arial', sans-serif;
+  color: #555;
+  position: relative;
+  top: 25px;
+}
+
+.titulo1 {
+    position: relative;
+    left: 95px;
+  font-size: 24px;
+  color: #333;
+}
+
+.label {
+  font-weight: bold;
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  margin-bottom: 15px;
+  background-color: #eeeded;
+  color: #333;
+}
+
+.educacion {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin: 15px 0;
+}
+
+.pregunta {
+  margin: 20px 0 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.radio {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.radio1 {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #444;
+}
+
+.radio {
+  accent-color:#ffa500; 
+  cursor: pointer;
+}
+
+.boton {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffa500;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: #ffdb4d;
+}
