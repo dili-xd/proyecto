@@ -2,6 +2,8 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { posData } from "../servicios/fetch"
 import "../styles/inicio.css"
+import Swal from 'sweetalert2'
+
 function FormInicio(){
     const [usuario,setUsuario]=useState("")
     const [clave,setClave]=useState("")
@@ -15,9 +17,20 @@ function FormInicio(){
         const respuesta= await posData('apiUsuarios/login_usuario/',usuarioObj)
         
         if(respuesta.message){
-            alert('si')
+           Swal.fire({
+            title:"Exito!",
+            text:"Sesión iniciada",
+            icon:"success",
+            confirmButtonText:"OK",
+           }); 
+            localStorage.setItem("token",respuesta.token)
         }else{
-            alert('no')
+            Swal.fire({
+                title:"Error!",
+                text:"La contraseña es incorrecta",
+                icon:"error",
+                confirmButtonText:"OK",
+               }); 
         }   
 
         

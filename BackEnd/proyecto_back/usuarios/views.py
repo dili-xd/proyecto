@@ -38,12 +38,12 @@ class UsuarioLoginView(APIView):
         password=request.data.get('password')
           
         usuario=authenticate(username=username,password=password)
-        token_refresh= RefreshToken.for_user(usuario)
-        token_access=str(token_refresh.access_token)
         if usuario is not None:
-            return Response({'message':'Usuario logiado con exito','token':token_access}, status=200)
+            token_refresh = RefreshToken.for_user(usuario)
+            token_acess = str (token_refresh.access_token)
+            return Response({'message':'Usuario logiado con exito', 'token':token_acess},status=200)
         else:
-            return Response({'error':'Usuario invalido'},status=402)
+            return Response({'error':'Usuario invalido'},status=400)
     
 class EditarUsuarioView(APIView):
        def path (self,request,id):
