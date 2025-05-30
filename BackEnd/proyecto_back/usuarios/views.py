@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .models import Usuario
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from django.contrib.auth.models import Group,User
 
 # Create your views here.
 class UsuarioCreateView(APIView):
@@ -28,8 +28,19 @@ class UsuarioCreateView(APIView):
         )
         Usuario.objects.create(
             user=user,
+
+                                    
             educacion_academica=educacion_academica 
         )
+        grupos=Group.objects.all()
+
+        try:
+            grupoUsuario=Group.objects.get(name='usuarios')
+            user.groups.add(grupoUsuario)
+
+        except Group.DoesNotExist:
+         return Response({'error':'Grupo no existe'},status=400)
+
         return Response({'message':'Usuario creado correctamente'},status=201)
 
 class UsuarioLoginView(APIView):
