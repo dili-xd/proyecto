@@ -6,6 +6,9 @@ from .models import Usuario
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import Group,User
+from .serializers import UsuarioSerializer
+from .models import Usuario
+from rest_framework.generics import ListAPIView                         
 
 # Create your views here.
 class UsuarioCreateView(APIView):
@@ -84,4 +87,18 @@ class EditarUsuarioView(APIView):
 
            return Response ({'message':'Usuario editado'},status=200)
 
+class UsuarioListView(ListAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+class UsuarioDescativarView(APIView):
+    def patch (self, request, id ):
+        try:
+            usuario=Usuario.objects.get(id=id)
+        except Usuario.DoesNotExist:
+            return Response({'error':'Usuario n oexiste'},status=400)
+        
+        usuario.user.is_active = not usuario.user.is_active 
+        usuario.save()   
+        return Response({'exito':'Usuario desactivado/activado'},status=200) 
 
