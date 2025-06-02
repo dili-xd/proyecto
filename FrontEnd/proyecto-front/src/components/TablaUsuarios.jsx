@@ -25,7 +25,6 @@ function TablaUsuarios(){
     async function desactivaUsuario(id) {
         const peticion = await patchData({},"apiUsuarios/estado_usuario/",id)
         console.log(peticion);
-        
     }
 
 
@@ -52,7 +51,11 @@ function TablaUsuarios(){
                             <button>Editar</button>
                         </td>
                         <td>
-                            <button>Eliminar</button>
+                            <button
+                                onClick={()=>{
+                                    desactivaUsuario(usuario.user_id)
+                                }}
+                            >Eliminar</button>
                         </td>
 
                     </tr>

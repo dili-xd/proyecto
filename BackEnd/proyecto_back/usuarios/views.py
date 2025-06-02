@@ -94,11 +94,11 @@ class UsuarioListView(ListAPIView):
 class UsuarioDescativarView(APIView):
     def patch (self, request, id ):
         try:
-            usuario=Usuario.objects.get(id=id)
-        except Usuario.DoesNotExist:
+            usuario=User.objects.get(id=id)
+        except User.DoesNotExist:
             return Response({'error':'Usuario n oexiste'},status=400)
         
-        usuario.user.is_active = not usuario.user.is_active 
+        usuario.is_active = not usuario.is_active 
         usuario.save()   
         return Response({'exito':'Usuario desactivado/activado'},status=200) 
 
