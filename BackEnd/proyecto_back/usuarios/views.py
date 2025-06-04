@@ -60,10 +60,10 @@ class UsuarioLoginView(APIView):
             return Response({'error':'Usuario invalido'},status=400)
     
 class EditarUsuarioView(APIView):
-       def path (self,request,id):
+       def patch (self,request,id):
            username= request.data.get('username')
            password= request.data.get('password')
-           email= request.date.get('email')
+           email= request.data.get('email')
            educacion_academica=request.data.get('educacion_academica')  
 
            if not id:

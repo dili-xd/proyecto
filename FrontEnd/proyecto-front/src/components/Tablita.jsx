@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { getData, patchData } from "../servicios/fetch";
 import Button from '@mui/material/Button';
 import ModalUsuario from './ModalUsuario';
@@ -36,6 +36,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 function Tablita() {
     const [usuarios, setUsuarios] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
+    const [usuarioEditar, setUsuarioEditar] = useState(null);
+
+    function abrirModal(usuario){
+        setUsuarioEditar(usuario)
+        setModalOpen(true)
+    }
+    function cerrarModal(){
+        setUsuarioEditar(null)
+        setModalOpen(false)
+    }
+
+
+
+
     function estructuraFecha(fecha) {
         const fechaE = new Date(fecha)
         const dia = String(fechaE.getDate()).padStart(2, '0')
@@ -82,7 +96,7 @@ function Tablita() {
                                 <StyledTableCell align="right">{usuario.email}</StyledTableCell>
                                 <StyledTableCell align="right">{estructuraFecha(usuario.date_joined)}</StyledTableCell>
                                 <StyledTableCell align="right">
-                                    <Button variant='outlined' color='danger' onClick={() => setModalOpen(!modalOpen)}>Editar</Button>
+                                    <Button variant='outlined' color='danger' onClick={() => abrirModal(usuario)}>Editar</Button>
                                 </StyledTableCell>
                                 <StyledTableCell align="right">
                                     <Button variant='outlined' color='warning' onClick={() => {
@@ -92,14 +106,13 @@ function Tablita() {
                             </StyledTableRow>
                         ))}
                     </TableBody>
-                    {modalOpen ?
-                        <>
-                            <ModalUsuario abrir={modalOpen} cerrar={() => setModalOpen(!modalOpen)} />
-                        </>
-                        : null
-                    }
                 </Table>
             </TableContainer>
+            <ModalUsuario
+            abrir={modalOpen}
+            cerrar={cerrarModal}
+            usuario={usuarioEditar}
+            />
         </>
     );
 }
