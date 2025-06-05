@@ -106,7 +106,7 @@ function Tablita() {
                             </StyledTableRow>
                         ))}
                     </TableBody>
-                </Table>
+                </Table> 
             </TableContainer>
             <ModalUsuario
             abrir={modalOpen}
