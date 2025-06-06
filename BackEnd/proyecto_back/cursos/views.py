@@ -26,6 +26,11 @@ class CursoCreateView(ListCreateAPIView):
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
 
+class CursoDeleteView(DestroyAPIView):
+    queryset = Curso.objects.all()
+    serializer_class= CursoSerializer
+    lookup_field = 'id'    
+
 class JuegoCreateView(ListCreateAPIView):
     queryset = Juegos.objects.all()
     serializer_class = JuegosSerializer

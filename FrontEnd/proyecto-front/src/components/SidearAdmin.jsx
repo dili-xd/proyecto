@@ -17,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Person2Icon from '@mui/icons-material/Person2';
 import SchoolIcon from '@mui/icons-material/School';
+import AddIcon from '@mui/icons-material/Add';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -91,7 +92,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     ],
   }),
 );
-function SidebarAdmin({mostrarUsuarios,mostrarCursos }) {
+function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarAgregarCurso }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -138,12 +139,20 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos }) {
                 </ListItemIcon>
                 <ListItemText primary="Usuarios" />
             </ListItemButton>
-               <ListItemButton>
-                <ListItemIcon onClick={mostrarCursos}>
+               <ListItemButton onClick={mostrarCursos}>
+                <ListItemIcon >
                     <SchoolIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Cursos" />
             </ListItemButton>
+            <ListItemButton onClick={mostrarAgregarCurso}>
+                <ListItemIcon >
+                    <AddIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Agregar Cursos" />
+            </ListItemButton>
+              
+
         </List>
         <Divider />
       </Drawer>
