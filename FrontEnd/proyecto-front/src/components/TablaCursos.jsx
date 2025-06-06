@@ -59,7 +59,38 @@ function TablaCursos() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    <StyledTableRow key={usuario.user_id}/>
+                    {Cursos.map((curso) => {
+                        return (
+                            <StyledTableRow key={curso.id}>
+                                <StyledTableCell component="th" scope="row" align='left'>
+                                    {curso.titulo}
+                                </StyledTableCell>
+
+                                <StyledTableCell component="th" scope="row" align='left'>
+                                    {curso.descripcion}
+                                </StyledTableCell>
+
+                                <StyledTableCell component="th" scope="row" align='left'>
+                                    {curso.nivel}
+                                </StyledTableCell>
+
+                                <StyledTableCell component="th" scope="row" align='left'>
+                                    <Button variant='outlined' color='warning'>
+                                        Editar
+                                    </Button>
+                                </StyledTableCell>
+
+                                <StyledTableCell component="th" scope="row" align='left'>
+                                    <Button variant='outlined' color='error'>
+                                        Eliminar
+                                    </Button>
+                                </StyledTableCell>
+                                
+
+
+                            </StyledTableRow>
+                        )
+                    })}
                     </TableBody>
                 </Table>
             </TableContainer>

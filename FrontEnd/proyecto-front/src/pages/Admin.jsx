@@ -5,7 +5,7 @@ import Tablita from "../components/Tablita";
 import { useState } from "react";
 
 function Admin(){
-    const [mostrarTablaUsuarios,setMostrarTablaUsuarios] = useState(false);
+    const [mostrarTablaUsuarios,setMostrarTablaUsuarios] = useState(true    );
     const [mostrarTablaCursos,setMostrarCursos] = useState(false);
 
     function mostrarCambioUsuario(){
@@ -13,7 +13,7 @@ function Admin(){
         setMostrarCursos(false)
     }
     function mostrarCambioCursos(){
-        setMostrarTablaUsuarios(!mostrarTablaCursos)
+        setMostrarCursos(!mostrarTablaCursos)
         setMostrarTablaUsuarios(false)
     }
 
