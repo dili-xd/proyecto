@@ -18,6 +18,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Person2Icon from '@mui/icons-material/Person2';
 import SchoolIcon from '@mui/icons-material/School';
 import AddIcon from '@mui/icons-material/Add';
+import GamepadIcon from '@mui/icons-material/Gamepad';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -92,7 +94,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     ],
   }),
 );
-function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarAgregarCurso }) {
+function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgregarCurso,mostrarAgregarJuegos }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -145,13 +147,26 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarAgregarCurso }) {
                 </ListItemIcon>
                 <ListItemText primary="Cursos" />
             </ListItemButton>
+            <ListItemButton onClick={mostrarJuegos}>
+                <ListItemIcon >
+                    <GamepadIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Juegos" />
+            </ListItemButton>
             <ListItemButton onClick={mostrarAgregarCurso}>
                 <ListItemIcon >
                     <AddIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Agregar Cursos" />
             </ListItemButton>
-              
+            <ListItemButton onClick={mostrarAgregarJuegos}>
+                <ListItemIcon >
+                    <SmartToyIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Agregar juegos" />
+            </ListItemButton>
+
+ 
 
         </List>
         <Divider />

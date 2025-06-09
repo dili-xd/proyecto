@@ -34,34 +34,34 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-function TablaCursos() {
-   const [Cursos,setCursos] = useState([])
+function TablaJuegos() {
+   const [juegos,setJuegos] = useState([])
    const [recarga,setRecarga] = useState(false)
    const [modalAbrir,setModalAbrir]= useState(false)
-   const [cursoEditar,setCursoEditar] = useState(null)
+   const [juegoEditar,setJuegoEditar] = useState(null)
 
    function abrirModal(curso) {
-    setCursoEditar(curso)
+    setJuegoEditar(curso)
     setModalAbrir(true)
     }
 
     function cerrarModal() {
-        setCursoEditar(null)
+        setJuegoEditar(null)
         setModalAbrir(false)
         setRecarga(!recarga) // Recargar los cursos después de editar uno
     }
 
    useEffect(()=>{
-       async function traerCursos(){
-           const peticion = await getData('apiCursos/cursos/')
-           setCursos(peticion)
+       async function traeJuegos(){
+           const peticion = await getData('apiCursos/juegos/')
+           setJuegos(peticion)
        }
-       traerCursos()},[recarga])
+       traeJuegos()},[recarga])
 
-    async function eliminarCurso(id) {
-        const peticion = await deleteData ('apiCursos/eliminar_curso/',id)
+    async function eliminarJuegos(id) {
+        const peticion = await deleteData ('apiCursos/eliminar_juego/',id)
         console.log(peticion)
-        setRecarga(! recarga) // Recargar los cursos después de eliminar uno
+        setRecarga(!recarga) // Recargar los cursos después de eliminar uno
 
     }
    
@@ -73,37 +73,37 @@ function TablaCursos() {
                     <TableHead>
                         <TableRow>
                             <StyledTableCell>Titulo Cursos</StyledTableCell>
-                            <StyledTableCell align="right">Descripcion Cursos</StyledTableCell>
-                            <StyledTableCell align="right">Fecha Creación</StyledTableCell>
-                            <StyledTableCell align="right">Nivel Cursos</StyledTableCell>
+                            <StyledTableCell align="right">Titulo Juego</StyledTableCell>
+                            <StyledTableCell align="right">Descripción Juego</StyledTableCell>
+                            <StyledTableCell align="right">Dificultad Juego</StyledTableCell>
                             <StyledTableCell align="right">Editar</StyledTableCell>
                             <StyledTableCell align="right">Eliminar</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {Cursos.map((curso) => {
+                    {juegos.map((juego) => {
                         return (
-                            <StyledTableRow key={curso.id}>
+                            <StyledTableRow key={juego.id}>
                                 <StyledTableCell component="th" scope="row" align='left'>
-                                    {curso.titulo}
+                                    {juego.nombre}
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='left'>
-                                    {curso.descripcion}
+                                    {juego.descripcion}
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='left'>
-                                    {curso.nivel}
+                                    {juego.dificultad}
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='rigth'>
-                                    <Button variant='outlined' color='warning' onClick={()=>abrirModal(curso)}>
+                                    <Button variant='outlined' color='warning' onClick={()=>abrirModal(juego)}>
                                         Editar
                                     </Button>
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='right'>
-                                    <Button variant='outlined' color='error' onClick={() => eliminarCurso(curso.id)}>
+                                    <Button variant='outlined' color='error' onClick={() => eliminarJuegos(juego.id)}>
                                         Eliminar
                                     </Button>
                                 </StyledTableCell>
@@ -116,13 +116,7 @@ function TablaCursos() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            
-            <ModalCursos
-            abrir={modalAbrir}
-            cerrar={cerrarModal}
-            curso={cursoEditar}
-            />
         </>
     );
 }
-export default TablaCursos
+export default TablaJuegos

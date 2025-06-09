@@ -1,0 +1,8 @@
+.contenedor-tablitas{
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 10vh;
+    justify-content: center;
+
+}
