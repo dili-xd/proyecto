@@ -20,11 +20,14 @@ function Admin(){
         setMostrarTablaUsuarios(!mostrarTablaUsuarios)
         setMostrarCursos(false)
         setMostrarAgregarCurso(false)
+        setMostrarTablaJuegos(false)
     }
     function mostrarCambioCursos(){
         setMostrarCursos(!mostrarTablaCursos)
         setMostrarTablaUsuarios(false)
         setMostrarAgregarCurso(false)
+        setMostrarAgregarJuegos(false)
+        setMostrarTablaJuegos(false)
     }
     function mostrarCambioJuegos(){
         setMostrarTablaJuegos(!mostrarTablaJuegos)
@@ -38,6 +41,8 @@ function Admin(){
         setMostrarAgregarCurso(!mostrarAgregarCurso)
         setMostrarTablaUsuarios(false)
         setMostrarCursos(false)
+        setMostrarTablaJuegos(false)
+        setMostrarAgregarJuegos(false)
     }
 
     function mostrarFormularioJuegos(){
@@ -45,6 +50,7 @@ function Admin(){
         setMostrarTablaUsuarios(false)
         setMostrarCursos(false)
         setMostrarTablaJuegos(false)
+        setMostrarAgregarCurso(false)
     }
 
     return(

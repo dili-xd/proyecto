@@ -20,6 +20,8 @@ import SchoolIcon from '@mui/icons-material/School';
 import AddIcon from '@mui/icons-material/Add';
 import GamepadIcon from '@mui/icons-material/Gamepad';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
+import "../styles/SidebarAdmin.css";
+
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -104,10 +106,12 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgrega
     setOpen(false);
   };
   return (
-    <Box sx={{ display: 'flex' }}>
+
+ 
+    <Box  sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+      <AppBar position="fixed" open={open} color='red'>
+        <Toolbar >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -122,7 +126,7 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgrega
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" >
             Admin Dashboard
           </Typography>
         </Toolbar>
@@ -172,6 +176,7 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgrega
         <Divider />
       </Drawer>
     </Box>
+   
   );
 }
 export default SidebarAdmin;

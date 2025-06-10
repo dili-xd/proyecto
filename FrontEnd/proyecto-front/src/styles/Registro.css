@@ -8,14 +8,14 @@
   font-family: 'Arial', sans-serif;
   color: #555;
   position: relative;
-  top: 25px;
+  margin-top: 10px;
 }
 
 .titulo1 {
     position: relative;
-    left: 95px;
-  font-size: 24px;
-  color: #333;
+    left: 70px;
+    font-size: 24px;
+    color: #222 !important;
 }
 
 .label {
@@ -71,7 +71,7 @@
 .boton {
   width: 100%;
   padding: 12px;
-  background-color: #ffa500;
+  background-color: #ffa500  !important ;
   color: #333;
   border: none;
   border-radius: 6px;
@@ -81,5 +81,5 @@
 }
 
 .boton:hover {
-  background-color: #ffdb4d;
+  background-color: #ffdb4d !important;
 }

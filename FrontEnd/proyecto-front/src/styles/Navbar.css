@@ -11,8 +11,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-
 
     button{
         background-color: transparent;
@@ -22,6 +20,7 @@
     }
 }
 .titulo{
-    position: relative;
-    right: 400px;
+      position: relative !important;
+      right: 350px !important;
+      color: #222 !important;
 }
