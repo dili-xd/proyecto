@@ -21,6 +21,7 @@ function Admin(){
         setMostrarCursos(false)
         setMostrarAgregarCurso(false)
         setMostrarTablaJuegos(false)
+        setMostrarAgregarJuegos(false)
     }
     function mostrarCambioCursos(){
         setMostrarCursos(!mostrarTablaCursos)
@@ -34,6 +35,7 @@ function Admin(){
         setMostrarTablaUsuarios(false)
         setMostrarCursos(false)
         setMostrarAgregarCurso(false)
+        setMostrarAgregarJuegos(false)
     }
 
 

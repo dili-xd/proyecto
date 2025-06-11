@@ -1,5 +1,5 @@
 .formulario {
-    max-width: 500px;
+    width: 6040px;
     margin: 40px auto;
     padding: 30px;
     background-color: #e6f0ff;
@@ -13,7 +13,8 @@
     color: #1a4ecc;
     margin-bottom: 25px;
     font-size: 26px;
-    right: 20px;
+    position: relative !important;
+    right: 10px !important;
   }
   
   .campo {
@@ -51,7 +52,9 @@
   }
   
   .boton {
-    width: 100%;
+    width: 29%;
+    text-align: center;
+    margin: 0 auto;
     padding: 14px;
     background-color: #1a4ecc;
     color: white;

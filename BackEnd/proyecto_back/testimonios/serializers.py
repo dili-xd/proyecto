@@ -6,5 +6,5 @@ class TestimonioSerializer(ModelSerializer):
     usuario_nombre=serializers.CharField(source="usuario.user.username",read_only=True)
     class Meta:
         model=Testimonio
-        fields=['contenido','fecha','usuario','usuario_nombre']
+        fields=['id','contenido','fecha','usuario','usuario_nombre']
         

@@ -19,27 +19,27 @@ const style = {
   p: 4,
 };
 
-function ModalCursos({abrir,cerrar, curso}) {
-  const [tituloCurso,setTituloCurso] = useState('')
-  const [descripcionCurso,setDescripcioncurso] = useState('')
-  const [nivelCurso,setNivelCurso] = useState('')
+function ModalJuegos({abrir,cerrar, juego}) {
+  const [nombreJuego,setNombreJuego] = useState('')
+  const [descripcionJuego,setDescripcionJuego] = useState('')
+  const [dificultadJuego,setDificultadJuego] = useState('')
 
   useEffect(() => {
-    if (curso) {
-      setTituloCurso(curso.titulo)
-      setDescripcioncurso(curso.descripcion)
-      setNivelCurso(curso.nivel)
+    if (juego) {
+      setNombreJuego(juego.nombre)
+      setDescripcionJuego(juego.descripcion)
+      setDificultadJuego(juego.dificultad)
     }
-  },[curso])
+  },[juego])
 
-    async function editarCurso(id) {
-        const objCurso={
-            titulo:tituloCurso,
-            descripcion: descripcionCurso,
-            nivel:nivelCurso 
+    async function editarJuego(id) {
+        const objJuego={
+            titulo:nombreJuego,
+            descripcion: descripcionJuego,
+            dificultad:dificultadJuego
         }
         
-        const peticion = await patchData(objCurso, 'apiCursos/actualizar_curso/',id)
+        const peticion = await patchData(objJuego, 'apiCursos/actualizar_juego/',id)
         console.log(peticion);
     }
 
@@ -57,24 +57,24 @@ function ModalCursos({abrir,cerrar, curso}) {
           </Typography> 
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <Input
-            onChange={(e) => setTituloCurso(e.target.value)}
-            value={tituloCurso}
+            onChange={(e) => setNombreJuego(e.target.value)}
+            value={nombreJuego}
             />
             <Input
-            onChange={(e)=> setDescripcioncurso(e.target.value)}
-            value={descripcionCurso}
+            onChange={(e)=> setDescripcionJuego(e.target.value)}
+            value={descripcionJuego}
             />
-            <select onChange={(e)=>setNivelCurso(e.target.value)}>
-              <option value={''} disabled selected>Seleccionar Nivel</option>
-              <option value={'principiante'}>Principiante</option>
-              <option value={'medio'}>Intermedio</option>
-              <option value={'avanzado'}>Avanzado</option>
+            <select onChange={(e)=>setDificultadJuego(e.target.value)}>
+              <option value={''} disabled selected>Seleccionar Dificultad</option>
+              <option value={'facil'}>Facil</option>
+              <option value={'intemedio'}>Intermedio</option>
+              <option value={'dificil'}>Dificil</option>
             </select>
             <Button
               variant='outlined'
               color='primary'
                onClick={()=>{
-                editarCurso(curso.id)
+                editarJuego(juego.id)
                 cerrar()}}             
             >editar</Button>
           </Typography>
@@ -83,4 +83,4 @@ function ModalCursos({abrir,cerrar, curso}) {
     </div>
   );
 }
-export default ModalCursos
+export default ModalJuegos

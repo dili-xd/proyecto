@@ -10,8 +10,7 @@ import Paper from '@mui/material/Paper';
 import { useState, useEffect } from "react";
 import { getData, patchData,deleteData } from "../servicios/fetch";
 import Button from '@mui/material/Button';
-import ModalUsuario from './ModalUsuario';
-import ModalCursos from './ModalCursos';
+import ModalJuegos from './ModalJuegos';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -84,15 +83,15 @@ function TablaJuegos() {
                     {juegos.map((juego) => {
                         return (
                             <StyledTableRow key={juego.id}>
-                                <StyledTableCell component="th" scope="row" align='left'>
+                                <StyledTableCell component="th" scope="row" align='right'>
                                     {juego.nombre}
                                 </StyledTableCell>
 
-                                <StyledTableCell component="th" scope="row" align='left'>
+                                <StyledTableCell component="th" scope="row" align='right'>
                                     {juego.descripcion}
                                 </StyledTableCell>
 
-                                <StyledTableCell component="th" scope="row" align='left'>
+                                <StyledTableCell component="th" scope="row" align='right'>
                                     {juego.dificultad}
                                 </StyledTableCell>
 
@@ -107,15 +106,17 @@ function TablaJuegos() {
                                         Eliminar
                                     </Button>
                                 </StyledTableCell>
-                                
-
-
                             </StyledTableRow>
                         )
                     })}
                     </TableBody>
                 </Table>
             </TableContainer>
+            <ModalJuegos
+            abrir={modalAbrir}
+            cerrar={cerrarModal}
+            juego={juegoEditar}
+            />
         </>
     );
 }

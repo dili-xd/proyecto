@@ -1,5 +1,5 @@
 .formulario2 {
-    max-width: 500px;
+    width: 6040px;
     margin: 40px auto;
     padding: 30px;
     background-color: #e6f0ff;
@@ -54,7 +54,7 @@
   }
   
   .boton5 {
-    width: 100%;
+    width: 29%;
     padding: 14px;
     background-color: #1a4ecc;
     color: white;

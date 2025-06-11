@@ -12,11 +12,11 @@ function AgregarJuego() {
             descripcion: descripcionJuego,
             dificultad: dificultadJuego
         }
-        const peticion = await posData("apiCursos/juegos", objJuego)
+        const peticion = await posData("apiCursos/juegos/", objJuego)
         console.log(peticion);
     }
 
-    return(
+    return( 
         <div className="formulario">
         <h1 className="titulo">AGREGAR JUEGO</h1>
       
