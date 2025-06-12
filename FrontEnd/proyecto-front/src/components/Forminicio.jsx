@@ -41,7 +41,7 @@ function FormInicio(){
         <h1 className="titulo1" >Iniciar Sesión</h1>
         <input className="input" type="text" placeholder="Usuario" onChange={(e)=>setUsuario(e.target.value)} />
         <input className="input" type="password" placeholder="clave" onChange={(e)=>setClave(e.target.value)}/>
-        <button className="boton" onClick={validarUsuario}>Iniciar Sesión</button>
+        <button className="botoN" onClick={validarUsuario}>Iniciar Sesión</button>
         <Link to={"/"}>ir a registro</Link>
         </div>
         </>

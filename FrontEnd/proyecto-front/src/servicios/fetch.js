@@ -3,7 +3,7 @@ async function posData(endpoint,obj) {
         const peticion=await fetch(`http://127.0.0.1:8000/${endpoint}`,{
             method:"POST",
             headers:{
-                "content-type":"application/json",
+                "Content-Type":"application/json",
             },
             body:JSON.stringify(obj)    
         })
@@ -14,7 +14,7 @@ async function posData(endpoint,obj) {
 
     }    
 }
-export {posData}
+
 
 async function getData(endpoint) {
     try{
@@ -26,7 +26,7 @@ async function getData(endpoint) {
     }
     
 }
-export {getData}
+
 
 async function patchData(obj,endpoint,id) {
     try {
@@ -44,7 +44,7 @@ async function patchData(obj,endpoint,id) {
         console.error(error);
     }
 }
-export {patchData}
+
 
 async function deleteData(endpoint,id) {
     try{
@@ -62,4 +62,4 @@ async function deleteData(endpoint,id) {
         console.error(error);
     }   
 }
-export {deleteData}
+export  {deleteData,posData,getData,patchData}

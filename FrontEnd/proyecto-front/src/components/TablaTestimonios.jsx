@@ -10,7 +10,8 @@ import Paper from '@mui/material/Paper';
 import { useState, useEffect } from "react";
 import { getData, patchData,deleteData } from "../servicios/fetch";
 import Button from '@mui/material/Button';
-import ModalNoticias from './ModalNoticias';
+import ModalTestimonios from './ModalTestimonios';
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
@@ -32,35 +33,34 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-function TablaNoticias() {
-   const [Noticias,setNoticias] = useState([])
+function TablaTestimonios() {
+   const [testimonios,setTestimonios] = useState([])
    const [recarga,setRecarga] = useState(false)
    const [modalAbrir,setModalAbrir]= useState(false)
-   const [noticiaEditar,setNoticiaEditar] = useState(null)
+   const [testimonioEditar,setTestimonioEditar] = useState(null)
 
-   function abrirModal(curso) {
-    setNoticiaEditar(curso)
+   function abrirModal(testimonio) {
+    setTestimonioEditar(testimonio)
     setModalAbrir(true)
     }
 
     function cerrarModal() {
-        setNoticiaEditar(null)
+        setTestimonioEditar(null)
         setModalAbrir(false)
         setRecarga(!recarga) // Recargar los cursos después de editar uno
     }
 
    useEffect(()=>{
-       async function traerNoticias(){
-           const peticion = await getData('apiNoticias/noticias/')
-           setNoticias(peticion)
+       async function traerTestimonios(){
+           const peticion = await getData('apiTestimonio/testimonio/')
+           setTestimonios(peticion)
        }
-       traerNoticias()},[recarga])
+       traerTestimonios()},[recarga])
 
-    async function eliminarNoticia(id) {
-        const peticion = await deleteData ('apiNoticias/eliminar_noticia/',id)
+    async function eliminarTestimonio(id) {
+        const peticion = await deleteData ('apiTestimonio/eliminar_testimonio/',id)
         console.log(peticion)
-        setRecarga(! recarga) // Recargar los cursos después de eliminar uno
-
+        setRecarga(!recarga) // Recargar los cursos después de eliminar uno
     }
    
     return (
@@ -69,49 +69,40 @@ function TablaNoticias() {
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell>Titulo Noticias</StyledTableCell>
-                            <StyledTableCell align="right">Contenido Noticias</StyledTableCell>
-                            <StyledTableCell align="right">Fecha Publicación</StyledTableCell>
-                            <StyledTableCell align="right">Usuario Publicación</StyledTableCell>
+                            <StyledTableCell>Contenido</StyledTableCell>
+                            <StyledTableCell align="right">Fecha Contenido</StyledTableCell>
+                            <StyledTableCell align="right">Nombre del usuario</StyledTableCell>
                             <StyledTableCell align="right">Editar</StyledTableCell>
                             <StyledTableCell align="right">Eliminar</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {Noticias.map((noticias) => {
+                    {testimonios.map((testimonio) => {
                         return (
-                            <StyledTableRow key={noticias.id}>
+                            <StyledTableRow key={testimonio.id}>
                                 <StyledTableCell component="th" scope="row" align='left'>
-                                    {noticias.titulo}
+                                    {testimonio.contenido}
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='right'>
-                                    {noticias.contenido}
+                                    {testimonio.fecha}
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='right'>
-                                    {noticias.fecha_poblicacion}
-                                </StyledTableCell>
-
-                                
-                                <StyledTableCell component="th" scope="row" align='right'>
-                                    {noticias.usuario_nombre}
+                                    {testimonio.usuario_nombre}
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='rigth'>
-                                    <Button variant='outlined' color='warning' onClick={()=>abrirModal(noticias)}>
+                                    <Button variant='outlined' color='warning' onClick={()=>abrirModal(testimonio)}>
                                         Editar
                                     </Button>
                                 </StyledTableCell>
 
                                 <StyledTableCell component="th" scope="row" align='right'>
-                                    <Button variant='outlined' color='error' onClick={() => eliminarNoticia(noticias.id)}>
+                                    <Button variant='outlined' color='error' onClick={() => eliminarTestimonio(testimonio.id)}>
                                         Eliminar
                                     </Button>
                                 </StyledTableCell>
-                                
-
-
                             </StyledTableRow>
                         )
                     })}
@@ -119,12 +110,12 @@ function TablaNoticias() {
                 </Table>
             </TableContainer>
             
-            <ModalNoticias
+            <ModalTestimonios
             abrir={modalAbrir}
             cerrar={cerrarModal}
-            noticia={noticiaEditar}
+            testimonio={testimonioEditar}
             />
         </>
     );
 }
-export default TablaNoticias
+export default TablaTestimonios

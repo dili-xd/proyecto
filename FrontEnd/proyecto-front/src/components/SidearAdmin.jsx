@@ -20,6 +20,10 @@ import SchoolIcon from '@mui/icons-material/School';
 import AddIcon from '@mui/icons-material/Add';
 import GamepadIcon from '@mui/icons-material/Gamepad';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import "../styles/SidebarAdmin.css";
 
 
@@ -96,7 +100,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     ],
   }),
 );
-function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgregarCurso,mostrarAgregarJuegos }) {
+function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarNoticias,mostrarTestimonios,mostrarAgregarCurso,mostrarAgregarJuegos,mostrarAgregarNoticias,mostrarAgregarTestimonios }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -157,6 +161,18 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgrega
                 </ListItemIcon>
                 <ListItemText primary="Juegos" />
             </ListItemButton>
+            <ListItemButton onClick={mostrarNoticias}>
+                <ListItemIcon >
+                <NewspaperIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Mostrar Noticias" />
+            </ListItemButton>
+            <ListItemButton onClick={mostrarTestimonios}>
+                <ListItemIcon >
+                    <CampaignIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Testimonios" />
+            </ListItemButton>
             <ListItemButton onClick={mostrarAgregarCurso}>
                 <ListItemIcon >
                     <AddIcon/>
@@ -169,6 +185,18 @@ function SidebarAdmin({mostrarUsuarios,mostrarCursos,mostrarJuegos,mostrarAgrega
                 </ListItemIcon>
                 <ListItemText primary="Agregar juegos" />
             </ListItemButton>
+            <ListItemButton onClick={mostrarAgregarNoticias}>
+                <ListItemIcon >
+                <AnnouncementIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Agregar Noticias" />
+            </ListItemButton>   
+            <ListItemButton onClick={mostrarAgregarTestimonios}>
+                <ListItemIcon >
+                <AddCircleIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Agregar Testimonios" />
+            </ListItemButton>   
 
  
 

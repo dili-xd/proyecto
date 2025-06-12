@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { posData } from "../servicios/fetch"
 import "../styles/Registro.css"
 import { Link } from "react-router-dom"
 import Swal from "sweetalert2"
+import { posData } from "../servicios/fetch"
+
 function FormRegistro() {
   const [usuario, setUsuario] = useState("")
   const [correo, setCorreo] = useState("")
@@ -16,7 +17,7 @@ function FormRegistro() {
       "password": clave,
       "educacion_academica": eduacionAcademica
     }
-    const respuesta = await posData("apiUsuarios/crear_usuario/", usuarioObj)
+    const respuesta = await posData('apiUsuarios/usuarios/', usuarioObj)
 
     if (respuesta.message) {
       Swal.fire({
@@ -57,7 +58,7 @@ function FormRegistro() {
           <input type="radio" name="educacion" value={false} className="radio" checked={eduacionAcademica === false} onChange={() => setEducacionAcademica(false)} />
         </div>
 
-        <button className="boton" onClick={guardaUsuarios}>Registrar Cuenta</button>
+        <button className="botonB" onClick={guardaUsuarios}>Registrar Cuenta</button>
         <Link to={"/iniciar"}>ir a inicio</Link>
       </div>
     </>

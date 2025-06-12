@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView,UpdateAPIView,DesroyAPIView
+from rest_framework.generics import ListCreateAPIView,UpdateAPIView,DestroyAPIView
 from .models import Noticias
 from .serializers import NoticiasSerializer
 
 
 # Create your views here.
-class NoticiasListView(ListAPIView):
+class NoticiasListView(ListCreateAPIView):
     queryset=Noticias.objects.all()
     serializer_class=NoticiasSerializer
 
@@ -14,7 +14,7 @@ class NoticiasUpdateView(UpdateAPIView):
     queryset = Noticias.objects.all()
     serializer_class = NoticiasSerializer
 
-class NoticiasDeleteView(DesroyAPIView):
+class NoticiasDeleteView(DestroyAPIView):
     lookup_field = 'id'
     queryset = Noticias.objects.all()
     serializer_class = NoticiasSerializer
