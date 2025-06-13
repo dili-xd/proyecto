@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { posData } from "../servicios/fetch"
+import { posData, posUsuarios } from "../servicios/fetch"
 import "../styles/inicio.css"
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom"
 
 function FormInicio(){
     const [usuario,setUsuario]=useState("")
     const [clave,setClave]=useState("")
+    const navigate = useNavigate()
     
     async function validarUsuario(evento) {
         evento.preventDefault()
@@ -14,7 +16,7 @@ function FormInicio(){
             "username":usuario,
             "password":clave
         }
-        const respuesta= await posData('apiUsuarios/login_usuario/',usuarioObj)
+        const respuesta= await posUsuarios('apiUsuarios/login_usuario/',usuarioObj)
         
         if(respuesta.message){
            Swal.fire({
@@ -24,6 +26,9 @@ function FormInicio(){
             confirmButtonText:"OK",
            }); 
             localStorage.setItem("token",respuesta.token)
+            localStorage.setItem("id_usuario",respuesta.id)
+            localStorage.setItem("grupo_usuario",respuesta.grupo_usuario)
+            navigate('/home')
         }else{
             Swal.fire({
                 title:"Error!",
@@ -41,7 +46,7 @@ function FormInicio(){
         <h1 className="titulo1" >Iniciar Sesión</h1>
         <input className="input" type="text" placeholder="Usuario" onChange={(e)=>setUsuario(e.target.value)} />
         <input className="input" type="password" placeholder="clave" onChange={(e)=>setClave(e.target.value)}/>
-        <button className="botoN" onClick={validarUsuario}>Iniciar Sesión</button>
+        <button className="botonB" onClick={validarUsuario}>Iniciar Sesión</button>
         <Link to={"/"}>ir a registro</Link>
         </div>
         </>

@@ -5,7 +5,7 @@ from .models import Curso,Juegos
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 class PermisoAcceso(BasePermission):
-    def has_object_permission(self, request, view):
+    def has_permission(self, request, view):
         usuario = request.user
 
         if not usuario.is_authenticated:
@@ -15,10 +15,18 @@ class PermisoAcceso(BasePermission):
         metodo = request.method
 
         if 'profesores' in grupos_permisos:
+            if metodo in SAFE_METHODS or metodo in ["POST","PUT","PATCH","DELETE"]:
+                return True
+            return False
+        if 'usuarios' in grupos_permisos:
             if metodo in SAFE_METHODS:
                 return True
             return False
+        if 'administradores' in grupos_permisos:
+            return True
         
+        return False
+
 
      #vistas cursos
 class CursoCreateView(ListCreateAPIView):
@@ -27,11 +35,13 @@ class CursoCreateView(ListCreateAPIView):
     serializer_class = CursoSerializer
 
 class CursoDeleteView(DestroyAPIView):
+    permission_classes=[PermisoAcceso]
     queryset = Curso.objects.all()
     serializer_class= CursoSerializer
     lookup_field = 'id'    
 
 class CursoUpdateView(UpdateAPIView):
+    permission_classes=[PermisoAcceso]
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
     lookup_field= 'id'
@@ -39,15 +49,18 @@ class CursoUpdateView(UpdateAPIView):
         #vistas juegos
 
 class JuegoCreateView(ListCreateAPIView):
+    permission_classes=[PermisoAcceso]
     queryset = Juegos.objects.all()
     serializer_class = JuegosSerializer
 
 class JuegoDeleteView(DestroyAPIView):
+    permission_classes=[PermisoAcceso]
     queryset = Juegos.objects.all()
     serializer_class = JuegosSerializer
     lookup_field = 'id'    
 
 class JuegoUpdateView(UpdateAPIView):
+    permission_classes=[PermisoAcceso]
     queryset = Juegos.objects.all()
     serializer_class = JuegosSerializer
     lookup_field = 'id'

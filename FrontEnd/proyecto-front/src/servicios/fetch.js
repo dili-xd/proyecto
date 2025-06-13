@@ -1,4 +1,23 @@
+const TOKEN = localStorage.getItem('token') 
+
 async function posData(endpoint,obj) {
+    try{
+        const peticion=await fetch(`http://127.0.0.1:8000/${endpoint}`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization": `Bearer ${TOKEN}`
+            },
+            body:JSON.stringify(obj)    
+        })
+        const respuesta=await peticion.json()
+        return respuesta
+    } catch (error){
+        console.error(error);
+
+    }    
+}
+async function posUsuarios(endpoint,obj) {
     try{
         const peticion=await fetch(`http://127.0.0.1:8000/${endpoint}`,{
             method:"POST",
@@ -18,7 +37,15 @@ async function posData(endpoint,obj) {
 
 async function getData(endpoint) {
     try{
-        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`)
+        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
+            method: 'GET',
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${TOKEN}` // Añade el token de autorización
+            }
+        })
+
+
         const respuesta = await peticion.json()
         return respuesta 
     } catch (error){
@@ -34,6 +61,7 @@ async function patchData(obj,endpoint,id) {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
+                "Authorization": `Bearer ${TOKEN}` // Añade el token de autorización
             },
             body: JSON.stringify(obj)
         })
@@ -52,6 +80,7 @@ async function deleteData(endpoint,id) {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${TOKEN}` // Añade el token de autorización
             }
         }
     )
@@ -62,4 +91,4 @@ async function deleteData(endpoint,id) {
         console.error(error);
     }   
 }
-export  {deleteData,posData,getData,patchData}
+export  {deleteData,posData,getData,patchData,posUsuarios}

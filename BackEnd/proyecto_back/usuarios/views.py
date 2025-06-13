@@ -8,7 +8,32 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import Group,User
 from .serializers import UsuarioSerializer
 from .models import Usuario
-from rest_framework.generics import ListAPIView                         
+from rest_framework.generics import ListAPIView   
+from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAuthenticated 
+
+
+class PermisoAcceso(BasePermission):
+    def has_permission(self, request, view):
+        usuario = request.user
+
+        if not usuario.is_authenticated:
+            return False
+        
+        grupos_permisos = usuario.groups.values_list('name', flat=True)
+        metodo = request.method
+
+        if 'profesores' in grupos_permisos:
+            if metodo in SAFE_METHODS or metodo in ["POST","PUT","PATCH","DELETE"]:
+                return True
+            return False
+        if 'usuarios' in grupos_permisos:
+            if metodo in SAFE_METHODS:
+                return True
+            return False
+        if 'administradores' in grupos_permisos:
+            return True
+        
+        return False
 
 # Create your views here.
 class UsuarioCreateView(APIView):
@@ -55,11 +80,13 @@ class UsuarioLoginView(APIView):
         if usuario is not None:
             token_refresh = RefreshToken.for_user(usuario)
             token_acess = str (token_refresh.access_token)
-            return Response({'message':'Usuario logiado con exito', 'token':token_acess},status=200)
+            grupo_usuario = usuario.groups.first()
+            return Response({'message':'Usuario logiado con exito', 'token':token_acess,'id':usuario.id,'grupo_usuario':str(grupo_usuario)},status=200)
         else:
             return Response({'error':'Usuario invalido'},status=400)
     
 class EditarUsuarioView(APIView):
+       permission_classes=[IsAuthenticated]
        def patch (self,request,id):
            username= request.data.get('username')
            password= request.data.get('password')
@@ -85,13 +112,15 @@ class EditarUsuarioView(APIView):
 
            user.save()
 
-           return Response ({'message':'Usuario editado'},status=200)
+           return Response ({'message':'Usuario editado','token':token_access,'id':usuario.id},status=200)
 
 class UsuarioListView(ListAPIView):
+    permission_classes=[PermisoAcceso]
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
 class UsuarioDescativarView(APIView):
+    permission_classes=[PermisoAcceso]
     def patch (self, request, id ):
         try:
             usuario=User.objects.get(id=id)

@@ -21,6 +21,7 @@
 }
 .titulo{
       position: relative !important;
-      right: 350px !important;
       color: #222 !important;
+      left: -400px;
+    
 }

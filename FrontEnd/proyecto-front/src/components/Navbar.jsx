@@ -6,7 +6,7 @@ function Navbar() {
               <ul className='navbar-lista'>
               <img  alt="" />
 
-              <h1 className='titulo' >Nombre Página</h1>
+              <h1 className='titulo'>Ahorropata</h1>
 
                 <button>Crear Cuenta</button>
               </ul>
