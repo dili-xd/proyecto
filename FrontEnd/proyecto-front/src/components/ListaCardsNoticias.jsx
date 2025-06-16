@@ -13,17 +13,16 @@ function ListaCardsNoticias() {
         }
         obtenerNoticias()
     },[])
+    
     return(
         <>
-        <h1>Noticias</h1>
-        
             {noticias.map((elemento)=>{
                 return(
                     <CardComponente
                         key={elemento.id}
                         titulo={elemento.titulo}
                         descripcion={elemento.contenido}
-                        // img={elemento.img}
+                        
                     />
                 )
             })}

@@ -1,4 +1,4 @@
-import { posData } from "../servicios/fetch"
+  import { posData } from "../servicios/fetch"
 import { useState } from "react"
 import '../styles/AgregarJuego.css'
 function AgregarJuego() {

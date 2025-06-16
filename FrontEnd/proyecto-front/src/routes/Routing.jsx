@@ -12,7 +12,7 @@ function Routing(){
                 <Route path='/' element={<Inicio/>}/>
                 <Route path='/iniciar' element={<Sesion/>}/>
                 <Route path='/admin' element={<RutaPrivada rol="administradores" children={<Admin/>}/> } />
-                <Route path='/home' element={<RutaPrivada rol={["usuarios","profesores","administradores"]} children={<Home/>}/>}/>
+                <Route path='/home' element={<RutaPrivada rol={["usuarios","profesores","administradores","None"]} children={<Home/>}/>}/>
             </Routes>
         </Router>
     )

@@ -30,7 +30,7 @@ class PermisoAcceso(BasePermission):
 
      #vistas cursos
 class CursoCreateView(ListCreateAPIView):
-    permission_classes=[PermisoAcceso]
+    # permission_classes=[PermisoAcceso]
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
 

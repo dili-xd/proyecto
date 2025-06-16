@@ -6,12 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function CardComponente({titulo,descripcion,img,onClick}) {
+function CardComponente({titulo,descripcion,img,onClick,nivel}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        alt="green iguana"
+        alt="nada"
         height="140"
         image={img}
       />
@@ -20,12 +20,12 @@ function CardComponente({titulo,descripcion,img,onClick}) {
           {titulo}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-         {descripcion}
+         {descripcion} - {nivel}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Calificar</Button>
+        <Button size="small">Inscribir</Button>
       </CardActions>
     </Card>
   );
