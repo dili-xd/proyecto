@@ -10,15 +10,15 @@ function Home(){
         <Navbar/>
 
         <div className='home-contenedor'>
-            <h2>Noticias</h2>
+            <h2 className='noticias'>Noticias</h2>
             <div className='listaNoticias'>
                 <ListaCardsNoticias/>
             </div>
-            <h2>Cursos</h2>
+            <h2 className='noticias'>Cursos</h2>
             <div className='listaNoticias'>
                 <ListaCardsCursos/>
             </div>
-            <h2>Juegos</h2>
+            <h2 className='noticias'>Juegos</h2>
             <div className='listaNoticias'>
                 <ListaCardsJuegos/>
 

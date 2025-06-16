@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, DestroyAPIView, UpdateAPIView
-from .serializers import CursoSerializer, JuegosSerializer
-from .models import Curso,Juegos
+from .serializers import CursoSerializer, JuegosSerializer,InscripcionesSerializer
+from .models import Curso,Juegos,Inscripciones
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 class PermisoAcceso(BasePermission):
@@ -45,6 +45,11 @@ class CursoUpdateView(UpdateAPIView):
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
     lookup_field= 'id'
+
+class InscripcionCreateView(ListCreateAPIView):
+    # permission_classes=[PermisoAcceso]
+    queryset = Inscripciones.objects.all()
+    serializer_class = InscripcionesSerializer
 
         #vistas juegos
 

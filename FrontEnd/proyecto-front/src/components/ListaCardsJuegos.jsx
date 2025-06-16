@@ -22,6 +22,7 @@ function ListaCardsJuegos(){
                     titulo={juego.nombre}
                     descripcion={juego.descripcion}
                     nivel={juego.dificultad}    
+                    img={"https://statics.forbes.com.ec/2022/09/crop/6318b0581f491__600x390.webp"}
                 />
             )
         })}

@@ -5,10 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-function CardComponente({titulo,descripcion,img,onClick,nivel}) {
+import '../styles/CardComponente.css';
+function CardComponente({titulo,descripcion,img,funcionInscribir,nivel,mostrarInscribir}) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className='card-componente'>
       <CardMedia
         component="img"
         alt="nada"
@@ -23,9 +23,12 @@ function CardComponente({titulo,descripcion,img,onClick,nivel}) {
          {descripcion} - {nivel}
         </Typography>
       </CardContent>
+      <hr />
       <CardActions>
-        <Button size="small">Calificar</Button>
-        <Button size="small">Inscribir</Button>
+        <Button size="small" className='btnCalificar'>Calificar</Button>
+        {mostrarInscribir &&
+        <Button size="small" onClick={funcionInscribir} className='btnInscribir'>Inscribir</Button>
+      }
       </CardActions>
     </Card>
   );

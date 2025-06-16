@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {getData} from '../servicios/fetch';
+import {getData, posData} from '../servicios/fetch';
 import CardComponente from './CardComponente';
 function ListaCardsCursos() {
     const [cursos, setCursos] = useState([])
@@ -12,6 +12,15 @@ function ListaCardsCursos() {
         traerCursos()
     },[])
 
+    async function inscribirCurso(id){
+        const objInscripcion = {
+            curso: id,
+            usuario: localStorage.getItem("id_usuario")
+        }
+        const peticion = await posData("apiCursos/inscripciones/", objInscripcion)
+        console.log(peticion);
+    }
+
     return(
     <>
     {cursos.map((curso)=>{
@@ -21,6 +30,9 @@ function ListaCardsCursos() {
             itulo={curso.titulo}
             descripcion={curso.descripcion}
             nivel={curso.nivel}
+            mostrarInscribir={true}
+            funcionInscribir={()=>inscribirCurso(curso.id)}
+            img={"https://www.ina.ac.cr/inavirtual/SiteAssets/imagenes/Cursos%20y%20Programas/CVirtuales.png"}
         />
         )
     })}

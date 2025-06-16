@@ -22,7 +22,7 @@ function ListaCardsNoticias() {
                         key={elemento.id}
                         titulo={elemento.titulo}
                         descripcion={elemento.contenido}
-                        
+                        img={"https://circulotne.com/wp-content/uploads/2017/10/20171003-Google_revistaTNE-799x399.jpg"}
                     />
                 )
             })}

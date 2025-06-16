@@ -28,6 +28,10 @@ function FormInicio(){
             localStorage.setItem("token",respuesta.token)
             localStorage.setItem("id_usuario",respuesta.id)
             localStorage.setItem("grupo_usuario",respuesta.grupo_usuario)
+            if(respuesta.grupo_usuario === "administradores"){
+                 navigate('/admin')
+                 return
+            }
             navigate('/home')
         }else{
             Swal.fire({
