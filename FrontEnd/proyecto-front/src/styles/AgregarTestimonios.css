@@ -1,4 +1,4 @@
-.formulario2 {
+.formulario6{
     width: 6040px;
     margin: 40px auto;
     padding: 30px;
@@ -8,7 +8,7 @@
     font-family: 'Segoe UI', sans-serif;
   }
   
-  .titulo1 {
+  .titulo3 {
     color: #1a4ecc;
     margin-bottom: 25px;
     font-size: 28px;
@@ -19,7 +19,7 @@
    
   }
   
-  .campo3 {
+  .campo8 {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -29,31 +29,16 @@
     background-color: #ffffff;
     transition: 0.3s ease-in-out;
   }
-  
-  .campo3:focus {
+    
+  .campo8:focus {
     outline: none;
     border-color: #f59e0b;
     box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
   }
   
-  .selector4 {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 2px solid #f59e0b; 
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #ffffff;
-    transition: 0.3s ease-in-out;
-  }
   
-  .selector4:focus {
-    outline: none;
-    border-color: #1a4ecc;
-    box-shadow: 0 0 10px rgba(26, 78, 204, 0.2);
-  }
   
-  .boton5 {
+  .boton9 {
     width: 29%;
     padding: 14px;
     background-color: #1a4ecc;
@@ -65,7 +50,6 @@
     transition: background-color 0.3s ease;
   }
   
-  .boton5:hover {
+  .boton9:hover {
     background-color: #153a99;
   }
-    

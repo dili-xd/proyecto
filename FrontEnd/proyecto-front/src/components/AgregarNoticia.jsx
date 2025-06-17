@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { posData } from "../servicios/fetch";
+import '../styles/AgregarNoticia.css';
 function AgregarNoticia() {
     const [tituloNoticia, setTituloNoticia] = useState("");
     const [contenidoNoticia,setContenidoNoticia] = useState("");
@@ -17,16 +18,18 @@ function AgregarNoticia() {
     }
     return(
         <>
-        <h1>Agregar Noticia</h1>
+        <div className="formulario3">
+        <h1 className="titulo3">Agregar Noticia</h1>
 
         <div>
-            <input type="text" placeholder="Titulo Noticia" onChange={(e)=>setTituloNoticia (e.target.value)} />
+            <input className="campo4" type="text" placeholder="Titulo Noticia" onChange={(e)=>setTituloNoticia (e.target.value)} />
  
-            <input type="text" placeholder="Contenido Noticia" onChange={(e)=>setContenidoNoticia(e.target.value)} />
+            <input className="campo4" type="text" placeholder="Contenido Noticia" onChange={(e)=>setContenidoNoticia(e.target.value)} />
 
-            <input type="date" placeholder="Fecha" onChange={(e)=>setFechaPublicacion(e.target.value)} />
+            <input className="campo4" type="date" placeholder="Fecha" onChange={(e)=>setFechaPublicacion(e.target.value)} />
 
-            <button onClick={enviarNoticia} >AGREGAR NOTICIA</button>
+            <button className="boton6" onClick={enviarNoticia} >AGREGAR NOTICIA</button>
+        </div>
         </div>
         </>
     )

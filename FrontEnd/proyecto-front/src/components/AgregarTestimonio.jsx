@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { posData } from '../servicios/fetch';
+import '../styles/AgregarTestimonios.css';   
 function AgregarTestimonio() {
     const [contenidoTestimonio, setContenidoTestimonio] = useState("");
 
@@ -14,11 +15,13 @@ function AgregarTestimonio() {
 
     return(
         <>
-            <h1>Agregar Testimonio</h1>
+        <div className="formulario6">
+            <h1 className='titulo5'>Agregar Testimonio</h1>
 
-            <input onChange={(e)=>setContenidoTestimonio(e.target.value)} placeholder="Contenido"/>
+            <input className='campo8' onChange={(e)=>setContenidoTestimonio(e.target.value)} placeholder="Contenido"/>
 
-            <button onClick={enviarTestimonio}>Agregar Testimonio!</button>
+            <button className='boton9' onClick={enviarTestimonio}>Agregar Testimonio!</button>
+        </div>
         </>
     )
 }

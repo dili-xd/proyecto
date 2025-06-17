@@ -46,6 +46,7 @@ function Admin(){
         setMostrarAgregarNoticias(false)
         setMostrarTablaTestimonios(false)
         setMostrarAgregarTestimonios(false)
+        setMostrarTablaTestimonios(false)
     }
     function mostrarCambioJuegos(){
         setMostrarTablaJuegos(!mostrarTablaJuegos)
@@ -89,8 +90,10 @@ function Admin(){
         setMostrarTablaJuegos(false)
         setMostrarAgregarJuegos(false)
         setMostrarTablaNoticias(false)  
-        setMostrarAgregarNoticias(false)
-    }
+        setMostrarAgregarNoticias(false)   
+        setMostrarTablaTestimonios(false) 
+        setMostrarAgregarTestimonios(false)
+    }   
 
     function mostrarFormularioJuegos(){
         setMostrarAgregarJuegos(!mostrarAgregarJuegos)
@@ -126,6 +129,8 @@ function Admin(){
         setMostrarTablaNoticias(false)  
         setMostrarAgregarNoticias(false) 
         setMostrarTablaTestimonios(false)
+        setMostrarTablaUsuarios(false)
+        setMostrarCursos(false)
         
     }
 

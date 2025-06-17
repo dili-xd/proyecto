@@ -32,7 +32,7 @@ function ListaCardsCursos() {
             nivel={curso.nivel}
             mostrarInscribir={true}
             funcionInscribir={()=>inscribirCurso(curso.id)}
-            img={"https://www.ina.ac.cr/inavirtual/SiteAssets/imagenes/Cursos%20y%20Programas/CVirtuales.png"}
+            img={curso.img}
         />
         )
     })}
