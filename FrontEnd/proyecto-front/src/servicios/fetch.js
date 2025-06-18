@@ -37,7 +37,7 @@ async function posUsuarios(endpoint,obj) {
 
 async function getData(endpoint) {
     try{
-        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
+        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}/${id}`,{
             method: 'GET',
             headers: {
                 "content-type": "application/json",

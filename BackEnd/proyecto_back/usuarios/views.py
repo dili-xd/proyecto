@@ -8,7 +8,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import Group,User
 from .serializers import UsuarioSerializer
 from .models import Usuario
-from rest_framework.generics import ListAPIView   
+from rest_framework.generics import ListAPIView, RetrieveAPIView 
 from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAuthenticated 
 
 
@@ -112,12 +112,17 @@ class EditarUsuarioView(APIView):
 
            user.save()
 
-           return Response ({'message':'Usuario editado','token':token_access,'id':usuario.id},status=200)
+           return Response ({'message':'Usuario editado'},status=200)
 
 class UsuarioListView(ListAPIView):
     permission_classes=[PermisoAcceso]
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
+
+class UsuarioPerfilView(RetrieveAPIView): 
+    quereyset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+    lookup_field = 'user__id'  # para el id del usuario
 
 class UsuarioDescativarView(APIView):
     permission_classes=[PermisoAcceso]
