@@ -120,9 +120,10 @@ class UsuarioListView(ListAPIView):
     serializer_class = UsuarioSerializer
 
 class UsuarioPerfilView(RetrieveAPIView): 
-    quereyset = Usuario.objects.all()
+    # permission_classes=[PermisoAcceso]
+    queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
-    lookup_field = 'user__id'  # para el id del usuario
+    lookup_field = 'user_id'  # para el id del usuario
 
 class UsuarioDescativarView(APIView):
     permission_classes=[PermisoAcceso]

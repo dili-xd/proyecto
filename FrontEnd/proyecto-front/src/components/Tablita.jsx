@@ -62,7 +62,7 @@ function Tablita() {
 
     useEffect(() => {
         async function obtenerUsuarios() {
-            const peticion = await getData('apiUsuarios/todos_usuarios/')
+            const peticion = await getData('apiUsuarios/todos_usuarios')
             setUsuarios(peticion)
         }
         obtenerUsuarios()
@@ -88,7 +88,7 @@ function Tablita() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {usuarios.map((usuario) => (
+                        {usuarios.length > 0 ? usuarios.map((usuario) => (
                             <StyledTableRow key={usuario.user_id}>
                                 <StyledTableCell component="th" scope="row">
                                     {usuario.username}
@@ -104,7 +104,7 @@ function Tablita() {
                                     }}>Eliminar</Button>
                                 </StyledTableCell>
                             </StyledTableRow>
-                        ))}
+                        )):<h1>NO HAY USUARIOS</h1>} 
                     </TableBody>
                 </Table> 
             </TableContainer>

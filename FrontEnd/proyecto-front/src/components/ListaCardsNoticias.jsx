@@ -7,7 +7,7 @@ function ListaCardsNoticias() {
 
     useEffect(()=>{
         async function obtenerNoticias() {
-            const peticion = await getData("apiNoticias/noticias/")
+            const peticion = await getData("apiNoticias/noticias")
             console.log(peticion);
             setNoticias(peticion)
         }

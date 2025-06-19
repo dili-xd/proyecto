@@ -32,7 +32,8 @@ function AgregarJuego() {
         const objJuego = {
             nombre: nombreJuego,
             descripcion: descripcionJuego,
-            dificultad: dificultadJuego
+            dificultad: dificultadJuego,
+            img: urlImagen,
         }
         const peticion = await posData("apiCursos/juegos/", objJuego)
         console.log(peticion);

@@ -51,7 +51,7 @@ function TablaNoticias() {
 
    useEffect(()=>{
        async function traerNoticias(){
-           const peticion = await getData('apiNoticias/noticias/')
+           const peticion = await getData('apiNoticias/noticias')
            setNoticias(peticion)
        }
        traerNoticias()},[recarga])

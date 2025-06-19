@@ -52,7 +52,7 @@ function TablaJuegos() {
 
    useEffect(()=>{
        async function traeJuegos(){
-           const peticion = await getData('apiCursos/juegos/')
+           const peticion = await getData('apiCursos/juegos')
            setJuegos(peticion)
        }
        traeJuegos()},[recarga])

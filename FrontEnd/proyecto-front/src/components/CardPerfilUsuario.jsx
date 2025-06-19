@@ -19,7 +19,7 @@ function CardPerfilUsuario() {
     //UseEffect para traer la información del usuario al cargar el componente
     useEffect(()=>{
     async function traerUsuario() {
-       const peticion = await getData('perfil_usuario/',localStorage.getItem('idUsuario'));
+       const peticion = await getData('apiUsuarios/perfil_usuario',localStorage.getItem('id_usuario')+'/');
        console.log(peticion);
        setUserInfo(peticion); 
      }
@@ -63,7 +63,7 @@ function CardPerfilUsuario() {
           {userInfo.username ? userInfo.username : 'NOMBRE DE USUARIO'}
       </Typography>
       <CardContent sx={{ maxWidth: '40ch' }}>
-       {}
+       {userInfo.email ? userInfo.email : 'CORREO ELECTRÓNICO'}
       </CardContent>
       <CardActions
         orientation="vertical"

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Usuario (models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
     educacion_academica=models.BooleanField(default=False)
+    img = models.TextField(default='')
     def __str__(self):
         return self.user.username
 

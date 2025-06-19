@@ -52,7 +52,7 @@ function TablaTestimonios() {
 
    useEffect(()=>{
        async function traerTestimonios(){
-           const peticion = await getData('apiTestimonio/testimonio/')
+           const peticion = await getData('apiTestimonio/testimonio')
            setTestimonios(peticion)
        }
        traerTestimonios()},[recarga])
@@ -77,7 +77,7 @@ function TablaTestimonios() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {testimonios.map((testimonio) => {
+                    {testimonios.length > 0 ? testimonios.map((testimonio) => {
                         return (
                             <StyledTableRow key={testimonio.id}>
                                 <StyledTableCell component="th" scope="row" align='left'>
@@ -105,7 +105,7 @@ function TablaTestimonios() {
                                 </StyledTableCell>
                             </StyledTableRow>
                         )
-                    })}
+                    }):<h1>No hay testimonios</h1>}
                     </TableBody>
                 </Table>
             </TableContainer>

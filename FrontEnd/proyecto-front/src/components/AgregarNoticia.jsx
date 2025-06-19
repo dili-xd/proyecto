@@ -33,7 +33,7 @@ function AgregarNoticia() {
             titulo:tituloNoticia,
             contenido:contenidoNoticia,
             fecha_poblicacion:fechaPublicacion,
-            usuario:localStorage.getItem("idUsuario"),
+            usuario:localStorage.getItem("id_usuario"),
             img:urlImagen
         }
         const peticion =await posData("apiNoticias/noticias/", objNoticia);    

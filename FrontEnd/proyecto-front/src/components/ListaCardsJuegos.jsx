@@ -7,7 +7,7 @@ function ListaCardsJuegos(){
 
     useEffect(()=>{
         async function obtenerJuegos() {
-            const peticion = await getData ('apiCursos/juegos/')
+            const peticion = await getData ('apiCursos/juegos')
             setJuegos(peticion)
             console.log(peticion);
         }

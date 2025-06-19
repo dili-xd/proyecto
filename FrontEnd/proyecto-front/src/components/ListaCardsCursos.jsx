@@ -6,7 +6,7 @@ function ListaCardsCursos() {
 
     useEffect(()=>{
         async function traerCursos() {
-            const peticion = await getData('apiCursos/cursos/')
+            const peticion = await getData('apiCursos/cursos')
             setCursos(peticion)
         }
         traerCursos()
