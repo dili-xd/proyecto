@@ -86,12 +86,13 @@ class UsuarioLoginView(APIView):
             return Response({'error':'Usuario invalido'},status=400)
     
 class EditarUsuarioView(APIView):
-       permission_classes=[IsAuthenticated]
+    #    permission_classes=[IsAuthenticated]
        def patch (self,request,id):
            username= request.data.get('username')
            password= request.data.get('password')
            email= request.data.get('email')
            educacion_academica=request.data.get('educacion_academica')  
+           img = request.data.get('img')
 
            if not id:
                return Response({'error':'Se necesita el id'},status=400)
@@ -107,15 +108,25 @@ class EditarUsuarioView(APIView):
                user.email=email
            if password:
                user.set_password(password)
-           if educacion_academica:
-               user.User.educacion_Academica=educacion_academica
+
+           try:
+               usuario=Usuario.objects.get(user=user)
+               if educacion_academica is not None:
+                     usuario.educacion_academica=educacion_academica
+               if img:
+                     usuario.img=img
+               
+               usuario.save()
+           except Usuario.DoesNotExist:
+                return Response({'error':'Usuario no existe'},status=400)
+           
 
            user.save()
 
            return Response ({'message':'Usuario editado'},status=200)
 
 class UsuarioListView(ListAPIView):
-    permission_classes=[PermisoAcceso]
+    # permission_classes=[PermisoAcceso]
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 

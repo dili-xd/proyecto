@@ -11,4 +11,4 @@ class UsuarioSerializer(ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = ['id', 'username', 'email', 'date_joined', 'educacion_academica', 'user_id']
+        fields = ['id', 'username', 'email', 'date_joined', 'educacion_academica', 'user_id','img']
