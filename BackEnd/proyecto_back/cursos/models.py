@@ -30,3 +30,10 @@ class Inscripciones(models.Model):
     usuario = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     fecha_inscripcion = models.DateTimeField(auto_now_add=True)
+
+class CalificacionCurso(models.Model):
+    usuario = models.ForeignKey ('usuarios.Usuario', on_delete=models.CASCADE)  
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    calificacion = models.IntegerField(default=0)
+    comentario = models.TextField(blank=True, null=True)
+    fecha_calificacion = models.DateTimeField(auto_now_add=True)

@@ -93,6 +93,7 @@ function Admin(){
         setMostrarAgregarNoticias(false)   
         setMostrarTablaTestimonios(false) 
         setMostrarAgregarTestimonios(false)
+        
     }   
 
     function mostrarFormularioJuegos(){
