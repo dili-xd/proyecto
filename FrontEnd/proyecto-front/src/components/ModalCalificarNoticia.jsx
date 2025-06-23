@@ -20,18 +20,18 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-function ModalCalificarCurso({ abrir, cerrar, curso }) {
+function ModalCalificarNoticia({ abrir, cerrar, curso }) {
   const [calificacion, setCalificacion] = useState(0)
   const [comentario, setComentario] =useState("");
   
   async function enviarCalificacion() {
     const objCalificacion = {
-      curso:curso.id,
+      noticia:noticia.id,
       usuario:localStorage.getItem("id_usuario"),
       comentario:comentario,
       calificacion:calificacion
     }
-    const peticion = await posData("apiCursos/calificar_curso/", objCalificacion)
+    const peticion = await posData("apiNoticias/calificar_noticia/", objCalificacion)
     console.log(peticion);
   }
   return (
@@ -63,4 +63,4 @@ function ModalCalificarCurso({ abrir, cerrar, curso }) {
     </div>
   );
 }
-export default ModalCalificarCurso
+export default ModalCalificarNoticia

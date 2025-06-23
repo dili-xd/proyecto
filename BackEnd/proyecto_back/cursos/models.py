@@ -37,3 +37,11 @@ class CalificacionCurso(models.Model):
     calificacion = models.IntegerField(default=0)
     comentario = models.TextField(blank=True, null=True)
     fecha_calificacion = models.DateTimeField(auto_now_add=True)
+
+class CalificacionJuego(models.Model):
+    usuario = models.ForeignKey ('usuarios.Usuario', on_delete=models.CASCADE)  
+    juego = models.ForeignKey(Juegos, on_delete=models.CASCADE)
+    calificacion = models.IntegerField(default=0)
+    comentario = models.TextField(blank=True, null=True)
+    fecha_calificacion = models.DateTimeField(auto_now_add=True)
+     

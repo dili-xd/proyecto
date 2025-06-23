@@ -20,18 +20,18 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-function ModalCalificarCurso({ abrir, cerrar, curso }) {
+function ModalCalificarJuego({ abrir, cerrar, juego }) {
   const [calificacion, setCalificacion] = useState(0)
   const [comentario, setComentario] =useState("");
-  
+
   async function enviarCalificacion() {
     const objCalificacion = {
-      curso:curso.id,
+      juego:juego.id,
       usuario:localStorage.getItem("id_usuario"),
       comentario:comentario,
       calificacion:calificacion
     }
-    const peticion = await posData("apiCursos/calificar_curso/", objCalificacion)
+    const peticion = await posData("apiCursos/calificar_juego/", objCalificacion)
     console.log(peticion);
   }
   return (
@@ -56,11 +56,11 @@ function ModalCalificarCurso({ abrir, cerrar, curso }) {
            </Stack>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <CalificarCurso calificacion={calificacion} setCalificacion={setCalificacion}/>
+            <CalificarCurso calificacion={calificacion} setCalificacion={setCalificacion} />
           </Typography>
         </Box>
       </Modal>
     </div>
   );
 }
-export default ModalCalificarCurso
+export default ModalCalificarJuego

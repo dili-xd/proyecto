@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView,UpdateAPIView,DestroyAPIView
-from .models import Noticias
-from .serializers import NoticiasSerializer
+from .models import Noticias, CalificacionNoticia
+from .serializers import NoticiasSerializer, CalificacionNoticiaSerializer
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 class PermisoAcceso(BasePermission):
@@ -25,7 +25,7 @@ class PermisoAcceso(BasePermission):
         if 'administradores' in grupos_permisos:
             return True
         
-        return Fals
+        return False
 
 
 # Create your views here.
@@ -45,3 +45,9 @@ class NoticiasDeleteView(DestroyAPIView):
     lookup_field = 'id'
     queryset = Noticias.objects.all()
     serializer_class = NoticiasSerializer
+
+class CalificarNoticiaCreateView(ListCreateAPIView):
+    #permission_classes=[PermisoAcceso]
+    queryset = CalificacionNoticia.objects.all()
+    serializer_class = CalificacionNoticiaSerializer        
+                                                                                        

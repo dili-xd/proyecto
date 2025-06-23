@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, DestroyAPIView, UpdateAPIView
-from .serializers import CursoSerializer, JuegosSerializer,InscripcionesSerializer, CalificacionCursoSerializer
-from .models import Curso,Juegos,Inscripciones, CalificacionCurso
-from rest_framework.permissions import BasePermission, SAFE_METHODS
+from .serializers import CursoSerializer, JuegosSerializer,InscripcionesSerializer, CalificacionCursoSerializer,CalificacionJueegoSerializer  
+from .models import Curso,Juegos,Inscripciones, CalificacionCurso,CalificacionJuego
+from rest_framework.permissions import BasePermission, SAFE_METHODS 
 
 class PermisoAcceso(BasePermission):
     def has_permission(self, request, view):
@@ -73,5 +73,10 @@ class JuegoUpdateView(UpdateAPIView):
 class CalificarCursoCreateView(ListCreateAPIView):
     #permission_classes=[PermisoAcceso]
     queryset = CalificacionCurso.objects.all()
-    serializer_class = CalificacionCursoSerializer        
+    serializer_class = CalificacionCursoSerializer       
+
+class CalificarJuegoCreateView(ListCreateAPIView):
+    #permission_classes=[PermisoAcceso]
+    queryset = CalificacionJuego.objects.all()
+    serializer_class = CalificacionJueegoSerializer        
                                                                                         
