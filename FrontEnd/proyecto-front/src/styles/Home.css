@@ -1,29 +1,30 @@
-.listaNoticias{
+.home-contenedor {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    min-height: 80vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Título de secciones: Noticias, Cursos, Juegos */
+  .noticias {
+    font-size: 2rem;
+    color: #003366;
+    text-align: center;
+    margin: 40px 0 20px;
+    background-color: #fffbea;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border-left: 6px solid #ffdd57;
+    border-right: 6px solid #ffdd57;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Contenedor de las listas */
+  .listaNoticias {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-}
-.home-contenedor{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: #f0f0f0;
-    padding: 20px;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-.noticias{
-    display: flex;
-    flex-direction: row;
     gap: 20px;
-    flex-wrap: wrap;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+    padding: 10px 0;
+  }
+  

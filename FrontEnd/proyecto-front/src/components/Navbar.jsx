@@ -12,7 +12,8 @@ function Navbar() {
               <h1 className='titulo'>Ahorropata</h1>
 
                 <button >Crear Cuenta</button>
-                <button onClick={()=>navigate('/perfil')}></button>
+                <button className="btn-perfil" onClick={() => navigate('/perfil')}>👤</button>
+
               </ul>
            </nav>
         </>

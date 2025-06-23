@@ -38,11 +38,11 @@ function Tablita() {
     const [modalOpen, setModalOpen] = useState(false);
     const [usuarioEditar, setUsuarioEditar] = useState(null);
 
-    function abrirModal(usuario){
+    function abrirModal(usuario) {
         setUsuarioEditar(usuario)
         setModalOpen(true)
     }
-    function cerrarModal(){
+    function cerrarModal() {
         setUsuarioEditar(null)
         setModalOpen(false)
     }
@@ -88,30 +88,37 @@ function Tablita() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {usuarios.length > 0 ? usuarios.map((usuario) => (
-                            <StyledTableRow key={usuario.user_id}>
-                                <StyledTableCell component="th" scope="row">
-                                    {usuario.username}
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{usuario.email}</StyledTableCell>
-                                <StyledTableCell align="right">{estructuraFecha(usuario.date_joined)}</StyledTableCell>
-                                <StyledTableCell align="right">
-                                    <Button variant='outlined' color='danger' onClick={() => abrirModal(usuario)}>Editar</Button>
-                                </StyledTableCell>
-                                <StyledTableCell align="right">
-                                    <Button variant='outlined' color='warning' onClick={() => {
-                                        desactivaUsuario(usuario.user_id)
-                                    }}>Eliminar</Button>
+                        {usuarios.length > 0 ? (
+                            usuarios.map((usuario) => (
+                                <StyledTableRow key={usuario.user_id}>
+                                    <StyledTableCell component="th" scope="row">
+                                        {usuario.username}
+                                    </StyledTableCell>
+                                    <StyledTableCell align="right">{usuario.email}</StyledTableCell>
+                                    <StyledTableCell align="right">{estructuraFecha(usuario.date_joined)}</StyledTableCell>
+                                    <StyledTableCell align="right">
+                                        <Button variant='outlined' color='primary' onClick={() => abrirModal(usuario)}>Editar</Button>
+                                    </StyledTableCell>
+                                    <StyledTableCell align="right">
+                                        <Button variant='outlined' color='error' onClick={() => desactivaUsuario(usuario.user_id)}>Eliminar</Button>
+                                    </StyledTableCell>
+                                </StyledTableRow>
+                            ))
+                        ) : (
+                            <StyledTableRow>
+                                <StyledTableCell colSpan={5} align="center">
+                                    <strong>No hay usuarios</strong>
                                 </StyledTableCell>
                             </StyledTableRow>
-                        )):<h1>NO HAY USUARIOS</h1>} 
+                        )}
+
                     </TableBody>
-                </Table> 
+                </Table>
             </TableContainer>
             <ModalUsuario
-            abrir={modalOpen}
-            cerrar={cerrarModal}
-            usuario={usuarioEditar}
+                abrir={modalOpen}
+                cerrar={cerrarModal}
+                usuario={usuarioEditar}
             />
         </>
     );

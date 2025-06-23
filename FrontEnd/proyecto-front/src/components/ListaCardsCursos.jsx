@@ -17,7 +17,9 @@ function ListaCardsCursos() {
     }
 
     async function usuarioInscrito(idCurso) {
-        const id_usuario = localStorage.getItem('')
+        const id_usuario = localStorage.getItem('id_usuario')
+        const cursosInscritos = await getData (`apiCursos/inscripciones`)
+        return cursosInscritos.some ((inscripcion)=>inscripcion.curso === idCurso && inscripcion.usuario === id_usuario     )
     }
 
     useEffect(() => {   
@@ -29,6 +31,11 @@ function ListaCardsCursos() {
     }, [])
 
     async function inscribirCurso(id) {
+        const yaInscrito = await usuarioInsrito(id)
+        if(!yaInscrito){
+            alert ("ya estas en este curso ")
+            return
+        }
         const objInscripcion = {
             curso: id,
             usuario: localStorage.getItem("id_usuario")

@@ -1,85 +1,73 @@
+/* Contenedor del formulario */
 .contenedor-registro {
-  max-width: 380px;
-  margin: 0 auto;
-  padding: 25px;
-  background-color:#eeeded;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  font-family: 'Arial', sans-serif;
-  color: #555;
-  position: relative;
-  margin-top: 10px;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fffbea;
+  border: 2px solid #ffdd57;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+/* Título */
 .titulo1 {
-    position: relative;
-    left: 70px;
-    font-size: 24px;
-    color: #222 !important;
+  font-size: 1.8rem;
+  color: #003366;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-.label {
-  font-weight: bold;
-  display: block;
-  margin: 10px 0 5px;
-}
-
+/* Inputs de texto y contraseña */
 .input {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  font-size: 14px;
-  margin-bottom: 15px;
-  background-color: #eeeded;
-  color: #333;
-}
-
-.educacion {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  margin: 15px 0;
-}
-
-.pregunta {
-  margin: 20px 0 10px;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
-}
-
-.radio {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-
-.radio1 {
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #444;
-}
-
-.radio {
-  accent-color:#ffa500; 
-  cursor: pointer;
-}
-
-.botonB {
-  width: 100%;
   padding: 12px;
-  background-color: #ffa500  !important ;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #ffdd57;
+  outline: none;
+}
+
+/* Botón principal */
+.botonB {
+  background-color: #ffdd57;
   color: #333;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.boton:hover {
-  background-color: #ffdb4d !important;
+.botonB:hover {
+  background-color: #ffe97d;
+  transform: scale(1.03);
 }
+
+/* Link hacia registro */
+a {
+  margin-top: 15px;
+  color: #003366;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffbb00;
+}
+
