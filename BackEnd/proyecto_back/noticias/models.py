@@ -9,7 +9,7 @@ class Noticias(models.Model):
     usuario= models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
     img = models.TextField(blank=True, null=True)
     def __str__(self):
-        return self.usuario.username 
+        return self.titulo
     
 class CalificacionNoticia(models.Model):
     usuario = models.ForeignKey ('usuarios.Usuario', on_delete=models.CASCADE)  

@@ -6,7 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../styles/CardComponente.css';
-function CardComponente({titulo,descripcion,img,funcionInscribir,nivel,mostrarInscribir,calficar}) {
+import BotonDesplegable from './BotonDesplegable';
+function CardComponente({titulo,descripcion,img,funcionInscribir,nivel,mostrarInscribir,calficar,funcionVerMas }) {
   return (
     <Card sx={{ maxWidth: 345 }} className='card-componente'>
       <CardMedia
@@ -27,7 +28,7 @@ function CardComponente({titulo,descripcion,img,funcionInscribir,nivel,mostrarIn
       <CardActions>
         <Button size="small" className='btnCalificar' onClick={calficar}>Calificar</Button>
         {mostrarInscribir &&
-        <Button size="small" onClick={funcionInscribir} className='btnInscribir'>Inscribir</Button>
+        <BotonDesplegable inscribir={funcionInscribir} verMas={funcionVerMas}/>
       }
       </CardActions>
     </Card>

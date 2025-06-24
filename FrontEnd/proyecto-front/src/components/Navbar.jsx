@@ -12,7 +12,7 @@ function Navbar() {
               <h1 className='titulo'>Ahorropata</h1>
 
                 <button >Crear Cuenta</button>
-                <button className="btn-perfil" onClick={() => navigate('/perfil')}>👤</button>
+                <button className="btn-perfil" onClick={() => navigate('/perfil')}>🦝yo</button>
 
               </ul>
            </nav>

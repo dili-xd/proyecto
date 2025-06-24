@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { getData, posData } from '../servicios/fetch';
 import CardComponente from './CardComponente';
 import ModalCalificarCurso from './ModalCalificarCurso';
+import {useNavigate} from 'react-router-dom';
 function ListaCardsCursos() {
     const [cursos, setCursos] = useState([])
     const [modalbrir, setModalAbrir] = useState(false)
     const [cursoCalificar, setCursoCalificar] = useState(null)
+    const navigate = useNavigate()
 
     function abrirModal(curso) {
         setModalAbrir(true)
@@ -19,7 +21,7 @@ function ListaCardsCursos() {
     async function usuarioInscrito(idCurso) {
         const id_usuario = localStorage.getItem('id_usuario')
         const cursosInscritos = await getData (`apiCursos/inscripciones`)
-        return cursosInscritos.some ((inscripcion)=>inscripcion.curso === idCurso && inscripcion.usuario === id_usuario     )
+        return cursosInscritos.some ((inscripcion)=>inscripcion.curso === idCurso && inscripcion.usuario === id_usuario)
     }
 
     useEffect(() => {   
@@ -31,7 +33,7 @@ function ListaCardsCursos() {
     }, [])
 
     async function inscribirCurso(id) {
-        const yaInscrito = await usuarioInsrito(id)
+        const yaInscrito = await usuarioInscrito(id)
         if(!yaInscrito){
             alert ("ya estas en este curso ")
             return
@@ -43,6 +45,11 @@ function ListaCardsCursos() {
         const peticion = await posData("apiCursos/inscripciones/", objInscripcion)
         console.log(peticion);
     }
+    function verMasCurso(id){
+        localStorage.setItem('cursoId',id)
+        navigate('/curso')
+    }
+
 
     return (
         <>
@@ -57,6 +64,7 @@ function ListaCardsCursos() {
                         funcionInscribir={() => inscribirCurso(curso.id)}
                         img={curso.img}
                         calficar={() => abrirModal(curso)}
+                        funcionVerMas={()=>verMasCurso(curso.id)}
                     />
                 )
             })}

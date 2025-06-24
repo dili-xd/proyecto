@@ -20,7 +20,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-function ModalCalificarNoticia({ abrir, cerrar, curso }) {
+function ModalCalificarNoticia({ abrir, cerrar, noticia }) {
   const [calificacion, setCalificacion] = useState(0)
   const [comentario, setComentario] =useState("");
   

@@ -5,6 +5,7 @@ import RutaPrivada from './RutaPrivada';
 import Home from '../pages/Home';
 import Admin from '../pages/Admin';
 import Perfil from '../pages/Perfil';
+import CursoMas from '../pages/CursoMas';
 
 function Routing(){
     return(             
@@ -14,6 +15,7 @@ function Routing(){
                 <Route path='/iniciar' element={<Sesion/>}/>
                 <Route path='/admin' element={<RutaPrivada rol="administradores" children={<Admin/>}/> } />
                 <Route path='/perfil' element={<Perfil  />}/>
+                <Route path='/curso' element={<CursoMas/>}/>
                 <Route path='/home' element={<RutaPrivada rol={["usuarios","profesores","administradores","None"]} children={<Home/>}/>}/>
             </Routes>
         </Router>
