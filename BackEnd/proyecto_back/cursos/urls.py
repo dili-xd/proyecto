@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import CursoCreateView, JuegoCreateView,CursoDeleteView,CursoUpdateView, JuegoDeleteView, JuegoUpdateView,InscripcionCreateView,CalificarCursoCreateView
-from .views import CalificarJuegoCreateView,InscripcionCreateView
+from .views import CalificarJuegoCreateView,InscripcionCreateView,CursoPorIDView
 
 urlpatterns = [
     # URL cursos
@@ -8,7 +8,7 @@ urlpatterns = [
     path('eliminar_curso/<int:id>/', CursoDeleteView.as_view()),
     path('actualizar_curso/<int:id>/', CursoUpdateView.as_view()),
     path('inscribir_curso/', InscripcionCreateView.as_view()),
-
+    path('curso/<int:id>/',CursoPorIDView.as_view()),
     path("calificar_curso/",CalificarCursoCreateView.as_view()),
     
     path("calificar_juego/",CalificarJuegoCreateView.as_view()),

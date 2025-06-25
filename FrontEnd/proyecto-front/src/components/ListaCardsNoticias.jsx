@@ -2,11 +2,14 @@ import { useEffect, useState } from "react"
 import CardComponente from "./CardComponente"
 import { getData } from "../servicios/fetch"
 import ModalCalificarNoticia from "./ModalCalificarNoticia"
+import { useNavigate } from "react-router-dom";
+
 
 function ListaCardsNoticias() {
     const [noticias,setNoticias] = useState([])
     const [modalbrir, setModalAbrir] = useState(false)
     const [noticiaCalificar, setNoticiaCalificar] = useState(null)
+    const navigate = useNavigate()
 
     function abrirModal(noticia) {
         setModalAbrir(true)
@@ -25,6 +28,12 @@ function ListaCardsNoticias() {
         }
         obtenerNoticias()
     },[])
+
+    
+    function verMasNoticia(id) {
+        localStorage.setItem("noticiaId",id)
+        navigate("/noticia")
+    }
     
     return(
         <>
@@ -36,6 +45,8 @@ function ListaCardsNoticias() {
                         descripcion={elemento.contenido}
                         img={elemento.img}
                         calficar={()=>abrirModal(elemento)}
+                        mostrarInscribir={false}
+                        funcionVerMas={()=>verMasNoticia(elemento.id)}
                     />
                 )
             })}

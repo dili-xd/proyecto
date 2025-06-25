@@ -33,6 +33,7 @@ function ModalCalificarCurso({ abrir, cerrar, curso }) {
     }
     const peticion = await posData("apiCursos/calificar_curso/", objCalificacion)
     console.log(peticion);
+    window.location.reload()
   }
   return (
     <div>

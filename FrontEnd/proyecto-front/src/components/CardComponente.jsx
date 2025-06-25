@@ -27,6 +27,9 @@ function CardComponente({titulo,descripcion,img,funcionInscribir,nivel,mostrarIn
       <hr />
       <CardActions>
         <Button size="small" className='btnCalificar' onClick={calficar}>Calificar</Button>
+        {mostrarInscribir === false &&
+        <Button size="small" className='btnCalificar' onClick={funcionVerMas}>Ver más</Button>
+      }
         {mostrarInscribir &&
         <BotonDesplegable inscribir={funcionInscribir} verMas={funcionVerMas}/>
       }

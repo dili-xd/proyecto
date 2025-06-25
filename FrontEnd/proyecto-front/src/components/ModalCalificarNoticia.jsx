@@ -33,6 +33,7 @@ function ModalCalificarNoticia({ abrir, cerrar, noticia }) {
     }
     const peticion = await posData("apiNoticias/calificar_noticia/", objCalificacion)
     console.log(peticion);
+    window.location.reload()
   }
   return (
     <div>

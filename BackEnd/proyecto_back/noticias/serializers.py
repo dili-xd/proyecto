@@ -10,7 +10,7 @@ class NoticiasSerializer(serializers.ModelSerializer):
         
 
 class CalificacionNoticiaSerializer(serializers.ModelSerializer):
-    usuario_califica = serializers.CharField(source='usuario.username', read_only=True)
+    usuario_califica = serializers.CharField(source='usuario.user.username', read_only=True)
     noticia_calificado = serializers.CharField(source='noticia.titulo', read_only=True)
     class Meta:
         model = CalificacionNoticia

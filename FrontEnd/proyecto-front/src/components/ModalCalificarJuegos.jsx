@@ -33,6 +33,7 @@ function ModalCalificarJuego({ abrir, cerrar, juego }) {
     }
     const peticion = await posData("apiCursos/calificar_juego/", objCalificacion)
     console.log(peticion);
+    window.location.reload()
   }
   return (
     <div>

@@ -6,7 +6,8 @@ function AgregarCurso() {
     const [titulo, setTitulo] = useState('')
     const [descripcion, setDescripcion] = useState('')
     const [nivel, setNivel] = useState('')
-    const [imagen,setImagen] = useState(null)
+    const [descripcionLarga, setDescipcionLarga] = useState("")
+    const [imagen, setImagen] = useState(null)
 
     async function subirImagen(archivo) {
         const data = new FormData()
@@ -29,14 +30,15 @@ function AgregarCurso() {
     async function enviarCurso() {
         let urlImagen = ''
         if (imagen) {
-            urlImagen = await subirImagen(imagen) 
-        }          
+            urlImagen = await subirImagen(imagen)
+        }
 
         const curso = {
             titulo: titulo,
             descripcion: descripcion,
             nivel: nivel,
-            img:urlImagen
+            img: urlImagen,
+            descripcion_larga: descripcionLarga
         }
         const peticion = await posData('apiCursos/cursos/', curso)
         console.log(peticion);
@@ -46,10 +48,10 @@ function AgregarCurso() {
 
     return (
         <>
-        
+
 
             <div className="formulario2">
-           <br /> <h1 className="titulo1">CURSOS</h1>
+                <br /> <h1 className="titulo1">CURSOS</h1>
 
 
                 <input
@@ -66,6 +68,13 @@ function AgregarCurso() {
                     onChange={(e) => setDescripcion(e.target.value)}
                 />
 
+                <input
+                    className="campo3"
+                    type="text"
+                    placeholder="Descripcion Detallada Curso"
+                    onChange={(e) => setDescipcionLarga(e.target.value)}
+                />
+
                 <select className="selector4" onChange={(e) => setNivel(e.target.value)}>
                     <option>Seleccione un nivel</option>
                     <option value="principiante">Principiante</option>
@@ -73,7 +82,7 @@ function AgregarCurso() {
                     <option value="avanzado">Avanzado</option>
                 </select>
 
-                    <input type="file" accept="image/*" onChange={(e)=>setImagen(e.target.files[0])}/>
+                <input type="file" accept="image/*" onChange={(e) => setImagen(e.target.files[0])} />
 
                 <button className="boton5" onClick={enviarCurso}>
                     Agregar Curso!

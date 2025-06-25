@@ -11,7 +11,7 @@ class Curso(models.Model):
     descripcion=models.CharField(max_length=500)
     nivel=models.CharField(choices=DIFICULTAD_OPCIONES, max_length=50)
     img = models.TextField (blank=True, null=True)
-
+    descripcion_larga = models.TextField()
     def __str__(self):
         return self.titulo
 

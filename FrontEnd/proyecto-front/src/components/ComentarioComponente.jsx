@@ -12,9 +12,9 @@ function ComentarioComponente({nombre,calificacion,comentario}) {
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        </ListItemAvatar>   
+        </ListItemAvatar>  
         <ListItemText
-          primary={calificacion}
+          primary={`Calificación ${calificacion}`}
           secondary={
             <React.Fragment>
               <Typography
@@ -23,8 +23,10 @@ function ComentarioComponente({nombre,calificacion,comentario}) {
                 sx={{ color: 'text.primary', display: 'inline' }}
               >
                 {nombre}
-              </Typography>
-              {comentario}
+              </Typography>             
+              <Divider variant="inset" component="li"/>
+              <br />
+              Comentario:{comentario}
             </React.Fragment>
           }
         />
