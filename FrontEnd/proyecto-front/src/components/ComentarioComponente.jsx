@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-function ComentarioComponente({nombre,calificacion,comentario}) {
+function ComentarioComponente({nombre,calificacion,comentario, eliminarComentario,editarComentario}) {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <ListItem alignItems="flex-start">
@@ -30,6 +30,11 @@ function ComentarioComponente({nombre,calificacion,comentario}) {
             </React.Fragment>
           }
         />
+      </ListItem>
+      <Divider variant="inset" component="li"/>
+      <ListItem>
+        <button onClick={eliminarComentario} className='btn btn-danger'>Eliminar</button>
+        <button onClick={editarComentario} className='btn btn-warning'>Editar</button>
       </ListItem>
     </List>
   );

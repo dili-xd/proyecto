@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, DestroyAPIView, UpdateAPIView, RetrieveAPIView
-from .serializers import CursoSerializer, JuegosSerializer,InscripcionesSerializer, CalificacionCursoSerializer,CalificacionJueegoSerializer  
+from .serializers import CursoSerializer, JuegosSerializer,InscripcionesSerializer, CalificacionCursoSerializer,CalificacionJueegoSerializer 
 from .models import Curso,Juegos,Inscripciones, CalificacionCurso,CalificacionJuego
 from rest_framework.permissions import BasePermission, SAFE_METHODS 
 
@@ -75,12 +75,44 @@ class JuegoUpdateView(UpdateAPIView):
     queryset = Juegos.objects.all()
     serializer_class = JuegosSerializer
     lookup_field = 'id'
-        
+
+class JuegoPorIDView(RetrieveAPIView):
+    #permission_classes = [PermisoAcceso]
+    lookup_field = 'id'
+    queryset = Juegos.objects.all()
+    serializer_class = JuegosSerializer
+    
 class CalificarCursoCreateView(ListCreateAPIView):
     #permission_classes=[PermisoAcceso]
+    lookup_field = 'id'
     queryset = CalificacionCurso.objects.all()
-    serializer_class = CalificacionCursoSerializer       
+    serializer_class = CalificacionCursoSerializer     
 
+
+class CalificarCursoDeleteView(DestroyAPIView):
+    #permission_classes=[PermisoAcceso]
+    queryset = CalificacionCurso.objects.all()
+    serializer_class = CalificacionCursoSerializer 
+    lookup_field = "id"
+
+class CalificarCursoUpdateView(UpdateAPIView):
+    #permission_classes=[PermisoAcceso]
+    lookup_field = "id"
+    queryset = CalificacionCurso.objects.all()
+    serializer_class = CalificacionCursoSerializer 
+
+class CalificarJuegoDeleteView(DestroyAPIView):
+    #permission_classes=[PermisoAcceso]
+    queryset = CalificacionJuego.objects.all()
+    serializer_class = CalificacionJueegoSerializer 
+    lookup_field = "id"
+
+class CalificarJuegoUpdateView(UpdateAPIView):
+    #permission_classes=[PermisoAcceso]
+    lookup_field = "id"
+    queryset = CalificacionJuego.objects.all()
+    serializer_class = CalificacionJueegoSerializer      
+    
 class CalificarJuegoCreateView(ListCreateAPIView):
     #permission_classes=[PermisoAcceso]
     queryset = CalificacionJuego.objects.all()

@@ -34,7 +34,7 @@ function CursoMas() {
             <p>{infoCurso.descripcion_larga}</p>
             <h3>comentario</h3>
             <hr />
-            <ListaComentariosCursos datos={cursosComentarios} />
+            <ListaComentariosCursos datos={cursosComentarios} endpointUrlEliminar={'apiCursos/eliminar_calificacion_curso/'} />
         </>
     )
 }

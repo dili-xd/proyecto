@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView,UpdateAPIView,DestroyAPIView
+from rest_framework.generics import ListCreateAPIView,UpdateAPIView,DestroyAPIView,RetrieveAPIView
 from .models import Noticias, CalificacionNoticia
 from .serializers import NoticiasSerializer, CalificacionNoticiaSerializer
 from rest_framework.permissions import BasePermission, SAFE_METHODS
@@ -46,8 +46,25 @@ class NoticiasDeleteView(DestroyAPIView):
     queryset = Noticias.objects.all()
     serializer_class = NoticiasSerializer
 
+class NoticiaPorIDView(RetrieveAPIView):
+    #permission_classes = [PermisoAcceso]
+    lookup_field = 'id'
+    queryset = Noticias.objects.all()
+    serializer_class = NoticiasSerializer
+
 class CalificarNoticiaCreateView(ListCreateAPIView):
     #permission_classes=[PermisoAcceso]
     queryset = CalificacionNoticia.objects.all()
     serializer_class = CalificacionNoticiaSerializer        
-                                                                                        
+
+class CalificarNoticiaDeleteView(DestroyAPIView):
+    #permission_classes=[PermisoAcceso]
+    lookup_field = 'id'
+    queryset = CalificacionNoticia.objects.all()
+    serializer_class = CalificacionNoticiaSerializer
+
+class CalificarNoticiaUpdateView(UpdateAPIView):
+    #permission_classes=[PermisoAcceso]
+    lookup_field = 'id'
+    queryset = CalificacionNoticia.objects.all()
+    serializer_class = CalificacionNoticiaSerializer

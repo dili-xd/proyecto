@@ -1,24 +1,38 @@
 import ListaComentariosCursos from "../components/ListaComentariosCursos"
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { getData } from "../servicios/fetch"
+
 function NoticiaMas() {
-    const [noticiasComentarios,setNoticiasComentarios]=useState([])
-    useEffect(()=>{
+    const [noticiasComentarios, setNoticiasComentarios] = useState([])
+    const [infoNoticia, setInfoNoticia] = useState([])
+
+    useEffect(() => {
+        async function traerNoticia() {
+            const peticion = await getData('apiNoticias/noticia', localStorage.getItem('noticiaId') + "/")
+            setInfoNoticia(peticion)
+            console.log(peticion);
+        }
+
         async function traerComentatrioNoticia() {
             const peticion = await getData('apiNoticias/calificar_noticia')
-            const filtradoNoticias = await peticion.filter((noticia)=>noticia.noticia == localStorage.getItem('noticiaId'))
+            const filtradoNoticias = await peticion.filter((noticia) => noticia.noticia == localStorage.getItem('noticiaId'))
             setNoticiasComentarios(filtradoNoticias)
         }
         traerComentatrioNoticia()
+        traerNoticia()
     }
     )
-    return(
+    return (
         <>
-         {noticiasComentarios.length > 0 ?
-         <ListaComentariosCursos datos={noticiasComentarios}/>
-        :<h1>NO HAY COMENTARIOS</h1>}
-         </>
+            <h2>{infoNoticia.titulo}</h2>
+            <img src={infoNoticia.img} />
+            <p>{infoNoticia.contenido}</p>
+
+            {noticiasComentarios.length > 0 ?
+                <ListaComentariosCursos datos={noticiasComentarios} endpointUrlEliminar={"apiNoticias/eliminar_calificacion_noticia/"}/>
+                : <h1>NO HAY COMENTARIOS</h1>}
+        </>
     )
-    
+
 }
 export default NoticiaMas
