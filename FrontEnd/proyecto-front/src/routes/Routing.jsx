@@ -8,6 +8,9 @@ import Perfil from '../pages/Perfil';
 import CursoMas from '../pages/CursoMas';
 import JuegoMas from '../pages/JuegoMas';
 import NoticiaMas from '../pages/NoticiaMas';
+import Contacto from "../pages/Contacto";
+import Nosotros from "../pages/Nosotros";
+import Ayuda from "../pages/Ayuda"
 function Routing(){
     return(             
          <Router>
@@ -20,6 +23,10 @@ function Routing(){
                 <Route path='/juego' element={<JuegoMas/>}/>
                 <Route path='/noticia' element={<NoticiaMas/>}/>
                 <Route path='/home' element={<RutaPrivada rol={["usuarios","profesores","administradores","None"]} children={<Home/>}/>}/>
+                <Route path='/contacto' element={<Contacto/>}/>
+                <Route path='/nosotros' element={<Nosotros/>}/>
+                <Route path='/ayuda' element={<Ayuda/>}/>
+
             </Routes>
         </Router>
     )

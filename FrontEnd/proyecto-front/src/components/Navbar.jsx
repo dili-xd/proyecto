@@ -9,9 +9,9 @@ function Navbar() {
               <ul className='navbar-lista'>
               <img  alt="" />
 
-              <h1 className='titulo'>Ahorropata</h1>
+              <h1 className='titulo' onClick={()=>navigate("/home")}>Ahorropata</h1>
 
-                <button >Crear Cuenta</button>
+                
                 <button className="btn-perfil" onClick={() => navigate('/perfil')}>🦝yo</button>
 
               </ul>

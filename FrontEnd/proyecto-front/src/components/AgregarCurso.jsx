@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { posData } from "../servicios/fetch";
 import '../styles/AgregarCurso.css';
+import Swal from "sweetalert2"
 
 function AgregarCurso() {
     const [titulo, setTitulo] = useState('')
@@ -23,6 +24,7 @@ function AgregarCurso() {
         console.log(respuesta);
         const urlImagen = respuesta.secure_url
         console.log(urlImagen);
+     
         return urlImagen
     }
 
@@ -32,7 +34,14 @@ function AgregarCurso() {
         if (imagen) {
             urlImagen = await subirImagen(imagen)
         }
-
+        if (titulo === "" || descripcion == "" || nivel == "" || descripcionLarga == "" || imagen == null) {
+            Swal.fire({
+                title: "Error al crear!",
+                text: "LLENAR TODOS LOS CAMPOS",
+                icon: "error"
+              });
+              return
+        }
         const curso = {
             titulo: titulo,
             descripcion: descripcion,
@@ -42,6 +51,11 @@ function AgregarCurso() {
         }
         const peticion = await posData('apiCursos/cursos/', curso)
         console.log(peticion);
+        Swal.fire({
+            title: "¡Curso creado!",
+            text: "Se agregó el curso",
+            icon: "success"
+          });
     }
 
 

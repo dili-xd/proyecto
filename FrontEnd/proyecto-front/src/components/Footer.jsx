@@ -1,22 +1,23 @@
 import '../styles/Footer.css'
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <>
      <footer className="footer-contenedor">
             <ul className='lista-enlaces'>
                 <section className='foder-lista'>
-                    <li>Contacto</li>
+                    <Link to="/contacto">Contacto</Link>
                     <img src="" alt="" />
                 </section>
                 <section className='foder-lista'>
-                    <li>Sobre Nosotros</li>
+                    <Link to="/nosotros">Sobre Nosotros</Link>
                     <img src="" alt="" />
                 </section>
                 <section className='foder-lista'>
                     <li>Todos los derechos reservados</li>
                 </section>
                 <section className='foder-lista'>
-                    <li>Ayuda</li>
+                    <Link to="/ayuda">Ayuda</Link>
                     <img src="" alt="" /> 
                 </section>
 

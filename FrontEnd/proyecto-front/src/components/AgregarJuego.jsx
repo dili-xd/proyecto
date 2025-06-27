@@ -1,6 +1,7 @@
   import { posData } from "../servicios/fetch"
 import { useState } from "react"
 import '../styles/AgregarJuego.css'
+import Swal  from "sweetalert2" 
 function AgregarJuego() {
     const [nombreJuego, setNombreJuego] = useState("")
     const [descripcionJuego, setDescripcionJuego] = useState("")
@@ -29,6 +30,14 @@ function AgregarJuego() {
       if (imagen){
         urlImagen=await subirImagen(imagen)
       }
+      if(nombreJuego == "" || descripcionJuego == "" || dificultadJuego == "" || imagen == null){
+        Swal.fire({
+          title: "¡Error al agregar el juego!",
+          text: "Por favor llene todos los campos",
+          icon: "error"
+        });
+        return
+      }
         const objJuego = {
             nombre: nombreJuego,
             descripcion: descripcionJuego,
@@ -36,6 +45,11 @@ function AgregarJuego() {
             img: urlImagen,
         }
         const peticion = await posData("apiCursos/juegos/", objJuego)
+        Swal.fire({
+          title: "¡Juego agregado con éxito!",
+          text: "Se agregó el juego",
+          icon: "success"
+        });
         console.log(peticion);
     }
 

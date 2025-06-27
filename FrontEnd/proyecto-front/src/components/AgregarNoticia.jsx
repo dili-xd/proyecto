@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { posData } from "../servicios/fetch";
 import '../styles/AgregarNoticia.css';
+import Swal from "sweetalert2"
+
 function AgregarNoticia() {
     const [tituloNoticia, setTituloNoticia] = useState("");
     const [contenidoNoticia,setContenidoNoticia] = useState("");
@@ -29,6 +31,14 @@ function AgregarNoticia() {
       if (imagen){
         urlImagen=await subirImagen(imagen)
       }
+      if(tituloNoticia == "" || contenidoNoticia == "" || fechaPublicacion == "" || imagen == null){
+        Swal.fire({
+            title: "¡Error al agregar la noticia!",
+            text: "Por favor llene todos los campos",
+            icon: "error"
+          });
+          return
+        } 
         const objNoticia={
             titulo:tituloNoticia,
             contenido:contenidoNoticia,
@@ -37,6 +47,11 @@ function AgregarNoticia() {
             img:urlImagen
         }
         const peticion =await posData("apiNoticias/noticias/", objNoticia);    
+        Swal.fire({
+            title: "¡Noticia Agregada!",
+            text: "Éxito al agregar la noticia",
+            icon: "success"
+          });
         console.log(peticion);                                                                               
     }
     return(

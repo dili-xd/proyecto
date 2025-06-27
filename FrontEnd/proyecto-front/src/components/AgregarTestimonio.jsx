@@ -1,16 +1,30 @@
 import React, { useState } from 'react';
 import { posData } from '../servicios/fetch';
-import '../styles/AgregarTestimonios.css';   
+import '../styles/AgregarTestimonios.css';  
+import Swal from "sweetalert2"
+
 function AgregarTestimonio() {
     const [contenidoTestimonio, setContenidoTestimonio] = useState("");
 
     async function enviarTestimonio() {
        const objTestimonio = {
             "contenido": contenidoTestimonio,
-            "usuario": 1
+            "usuario": localStorage.getItem("id_usuario")
         }
+        if(contenidoTestimonio == ""){
+            Swal.fire({
+                title: "¡Error al agregar el testimonio!",
+                text: "Por favor llene todos los campos",
+                icon: "error"
+              });
+              return
+            }
         const peticion = await posData("apiTestimonio/testimonio/", objTestimonio);
-        console.log(peticion);
+        Swal.fire({
+            title: "¡Testimonio agregado!",
+            text: "Se agregó el testimonio con éxtio",
+            icon: "success"
+          });
     }
 
     return(

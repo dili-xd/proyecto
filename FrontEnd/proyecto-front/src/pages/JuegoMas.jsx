@@ -19,7 +19,7 @@ function JuegoMas() {
         traerComentatrioJuego()
         traerJuego()
     }
-    ,[recarga])
+    ,[recarga]) 
     return (
         <>
             <h2>{infoJuego.titulo}</h2>
