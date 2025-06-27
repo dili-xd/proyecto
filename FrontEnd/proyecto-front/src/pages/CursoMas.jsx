@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar"
 function CursoMas() {
     const [cursosComentarios, setCursosComentarios] = useState([])
     const [infoCurso, setInfoCurso] = useState([])
+    const [recarga,setRecarga] = useState(false)
 
     useEffect(() => {
         async function traerCurso() {
@@ -22,7 +23,7 @@ function CursoMas() {
         }
         traerCurso()
         traerComentatrioCurso()
-    },[])
+    },[recarga])
 
 
 
@@ -34,7 +35,7 @@ function CursoMas() {
             <p>{infoCurso.descripcion_larga}</p>
             <h3>comentario</h3>
             <hr />
-            <ListaComentariosCursos datos={cursosComentarios} endpointUrlEliminar={'apiCursos/eliminar_calificacion_curso/'} />
+            <ListaComentariosCursos datos={cursosComentarios} endpointUrlEliminar={'apiCursos/eliminar_calificacion_curso/'} endpointUrlEditar={"apiCursos/editar_calificacion_curso/"} recarga={recarga} setRecarga={setRecarga}/>
         </>
     )
 }

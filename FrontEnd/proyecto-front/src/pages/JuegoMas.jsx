@@ -4,6 +4,7 @@ import { getData } from "../servicios/fetch"
 function JuegoMas() {
     const [juegosComentarios, setJuegosComentarios] = useState([])
     const [infoJuego, setInfoJuego] = useState([])
+    const [recarga,setRecarga] = useState(false)
     useEffect(() => {
         async function traerJuego() {
             const peticion = await getData('apiCursos/juego', localStorage.getItem('juegoId') + "/")
@@ -18,13 +19,13 @@ function JuegoMas() {
         traerComentatrioJuego()
         traerJuego()
     }
-    )
+    ,[recarga])
     return (
         <>
             <h2>{infoJuego.titulo}</h2>
             <img src={infoJuego.img} />
             <p>{infoJuego.descripcion}</p>
-            <ListaComentariosCursos datos={juegosComentarios} endpointUrlEliminar={"apiCursos/eliminar_calificacion_juego/"} />
+            <ListaComentariosCursos datos={juegosComentarios} endpointUrlEliminar={"apiCursos/eliminar_calificacion_juego/"} endpointUrlEditar={"apiCursos/editar_calificacion_juego/"} recarga={recarga} setRecarga={setRecarga}/>
         </>
     )
 }
