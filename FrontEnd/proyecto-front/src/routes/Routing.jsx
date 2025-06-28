@@ -12,13 +12,13 @@ import Contacto from "../pages/Contacto";
 import Nosotros from "../pages/Nosotros";
 import Ayuda from "../pages/Ayuda"
 function Routing(){
-    return(             
+    return(
          <Router>
             <Routes>
                 <Route path='/' element={<Inicio/>}/>
                 <Route path='/iniciar' element={<Sesion/>}/>
                 <Route path='/admin' element={<RutaPrivada rol="administradores" children={<Admin/>}/> } />
-                <Route path='/perfil' element={<Perfil  />}/>
+                <Route path='/perfil' element={<RutaPrivada  rol={["usuarios","profesores","administradores"]} children={<Perfil/>}/>}/>
                 <Route path='/curso' element={<CursoMas/>}/>
                 <Route path='/juego' element={<JuegoMas/>}/>
                 <Route path='/noticia' element={<NoticiaMas/>}/>
@@ -26,7 +26,6 @@ function Routing(){
                 <Route path='/contacto' element={<Contacto/>}/>
                 <Route path='/nosotros' element={<Nosotros/>}/>
                 <Route path='/ayuda' element={<Ayuda/>}/>
-
             </Routes>
         </Router>
     )
