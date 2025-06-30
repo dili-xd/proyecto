@@ -7,7 +7,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-function ComentarioComponente({nombre,calificacion,comentario, eliminarComentario,editarComentario}) {
+import Button from '@mui/material/Button';
+function ComentarioComponente({img,nombre,calificacion,comentario, eliminarComentario,editarComentario,mostrarEliminar,mostrarEditar}) {
   const [editando,setEditando] = useState(false)
   const [nuevoComentario,setNuevoComentario] = useState(comentario)
   const [nuevaCalificacion,setNuevaCalificacion] = useState(calificacion)
@@ -24,10 +25,19 @@ function ComentarioComponente({nombre,calificacion,comentario, eliminarComentari
     setEditando(false);
   }
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List
+  sx={{
+    width: '100%',
+    maxWidth: 360,
+    bgcolor: '#FFF8B0',
+    borderRadius: 2,
+    p: 2,
+    boxShadow: 1
+  }}
+>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt={nombre} src={img} />
         </ListItemAvatar>
         {editando ?(
           <ListItemText>
@@ -57,15 +67,17 @@ function ComentarioComponente({nombre,calificacion,comentario, eliminarComentari
       <Divider variant="inset" component="li" />
       {!editando ?(
         <>
+        {mostrarEliminar && mostrarEditar &&
   <ListItem>
-        <button onClick={eliminarComentario} className='btn btn-danger'>Eliminar</button>
-        <button onClick={()=>setEditando(true)} className='btn btn-warning'>Editar</button>
+        <Button color='warning' onClick={eliminarComentario} className='btn btn-danger'>Eliminar</Button>
+        <Button onClick={()=>setEditando(true)} className='btn btn-warning'>Editar</Button>
       </ListItem>
+      }
         </>
       ):(
         <>
-          <button onClick={guardarEdicion}>Guardar</button>
-          <button onClick={cancelarEditar}>Cerrar</button>
+          <Button onClick={guardarEdicion}>Guardar</Button>
+          <Button onClick={cancelarEditar}>Cerrar</Button>
         </>
       )}
     </List>

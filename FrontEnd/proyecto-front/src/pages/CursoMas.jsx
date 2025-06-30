@@ -3,6 +3,8 @@ import ListaComentariosCursos from "../components/ListaComentariosCursos"
 import { useState, useEffect } from "react"
 import { getData } from "../servicios/fetch"
 import Navbar from "../components/Navbar"
+import PartSupMas from "../components/PartSupMas"
+import "../styles/CursoMas.css"
 function CursoMas() {
     const [cursosComentarios, setCursosComentarios] = useState([])
     const [infoCurso, setInfoCurso] = useState([])
@@ -24,18 +26,24 @@ function CursoMas() {
         traerCurso()
         traerComentatrioCurso()
     },[recarga])
-
-
-
     return (
         <>
         <Navbar/>
-            <h2>{infoCurso.titulo}</h2>
-            <img src={infoCurso.img} />
-            <p>{infoCurso.descripcion_larga}</p>
-            <h3>comentario</h3>
-            <hr />
-            <ListaComentariosCursos datos={cursosComentarios} endpointUrlEliminar={'apiCursos/eliminar_calificacion_curso/'} endpointUrlEditar={"apiCursos/editar_calificacion_curso/"} recarga={recarga} setRecarga={setRecarga}/>
+        <div className="contenedor-curso-mas">
+            <div className="contenido-curso">
+                <PartSupMas img={infoCurso.img} descripcion={infoCurso.descripcion} titulo={infoCurso.titulo}/>
+            </div>
+            <div className="comentarios-curso">
+                <h2>Comentarios</h2>
+                <div className="comentarios-lista">
+                    {cursosComentarios.length > 0 ?(
+                    <ListaComentariosCursos datos={cursosComentarios} endpointUrlEliminar={'apiCursos/eliminar_calificacion_curso/'} endpointUrlEditar={"apiCursos/editar_calificacion_curso/"} recarga={recarga} setRecarga={setRecarga}/>
+                ):(
+                    <h1>NO HAY COMENTARIOS</h1>
+                  )}
+                </div>
+            </div>
+        </div>
         </>
     )
 }

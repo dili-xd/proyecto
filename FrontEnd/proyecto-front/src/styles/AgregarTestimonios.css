@@ -1,55 +1,46 @@
 .formulario6{
-    width: 6040px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #e6f0ff;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .titulo3 {
-    color: #1a4ecc;
-    margin-bottom: 25px;
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    right: -500px;
-   
-  }
-  
-  .campo8 {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 2px solid #f59e0b; 
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #ffffff;
-    transition: 0.3s ease-in-out;
-  }
-    
-  .campo8:focus {
-    outline: none;
-    border-color: #f59e0b;
-    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
-  }
-  
-  
-  
-  .boton9 {
-    width: 29%;
-    padding: 14px;
-    background-color: #1a4ecc;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .boton9:hover {
-    background-color: #153a99;
-  }
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #E6F0FF;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+.titulo3 {
+  color: #1A4ECC;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  right: -500px;
+}
+.campo8 {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #F59E0B;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  transition: 0.3s ease-in-out;
+}
+.campo8:focus {
+  outline: none;
+  border-color: #F59E0B;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+.boton9 {
+  width: 29%;
+  padding: 14px;
+  background-color: #1A4ECC;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.boton9:hover {
+  background-color: #153A99;
+}     

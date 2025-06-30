@@ -1,0 +1,36 @@
+.contacto-contenedor {
+    background-color: #fff9e6;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Comic Neue', 'Segoe UI', cursive;
+    max-width: 600px;
+    margin: 40px auto;
+    border: 2px solid #ffe28a;
+  }
+  
+  .contacto-titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #01497c;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contacto-texto {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .contacto-lista {
+    list-style-type: "🐝 ";
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .contacto-datos p {
+    font-size: 16px;
+    margin: 8px 0;
+  }

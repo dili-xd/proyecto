@@ -2,7 +2,7 @@ import { useState } from "react"
 import "../styles/Registro.css"
 import { Link } from "react-router-dom"
 import Swal from "sweetalert2"
-import { posData } from "../servicios/fetch"
+import { posData, posUsuarios } from "../servicios/fetch"
 
 function FormRegistro() {
   const [usuario, setUsuario] = useState("")
@@ -17,7 +17,7 @@ function FormRegistro() {
       "password": clave,
       "educacion_academica": eduacionAcademica
     }
-    const respuesta = await posData('apiUsuarios/usuarios/', usuarioObj)
+    const respuesta = await posUsuarios('apiUsuarios/crear_usuario/', usuarioObj)
 
     if (respuesta.message) {
       Swal.fire({

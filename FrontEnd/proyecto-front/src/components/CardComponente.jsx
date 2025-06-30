@@ -9,7 +9,7 @@ import '../styles/CardComponente.css';
 import BotonDesplegable from './BotonDesplegable';
 function CardComponente({titulo,descripcion,img,funcionInscribir,nivel,mostrarInscribir,calficar,funcionVerMas }) {
   return (
-    <Card sx={{ maxWidth: 345 }} className='card-componente'>
+    <Card sx={{    }} className='card-componente'>
       <CardMedia
         component="img"
         alt="nada"

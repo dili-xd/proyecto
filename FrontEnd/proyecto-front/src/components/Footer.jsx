@@ -21,7 +21,7 @@ function Footer() {
         </section>
         <section className="foder-lista">
           <div className="enlace-con-icono">
-            <Link to="/ayuda">Ayuda</Link>
+          
             <img src="../src/assets/imgs/imgayuda.png" alt="Ayuda" />
           </div>
         </section>
