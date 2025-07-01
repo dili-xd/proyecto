@@ -12,7 +12,7 @@ function Navbar() {
               <h1 className='titulo' onClick={()=>navigate("/home")}>Ahorropata</h1>
 
                 
-                <button className="btn-perfil" onClick={() => navigate('/perfil')}>🦝yo</button>
+                <button className="btn-perfil" onClick={() => navigate('/perfil')}>Perfil</button>
 
               </ul>
            </nav>
