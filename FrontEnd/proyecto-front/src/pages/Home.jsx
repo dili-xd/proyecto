@@ -1,4 +1,5 @@
 import CardComponente from '../components/CardComponente';
+import Footer from '../components/Footer';
 import ListaCardsCursos from '../components/ListaCardsCursos';
 import ListaCardsJuegos from '../components/ListaCardsJuegos';
 import ListaCardsNoticias from '../components/ListaCardsNoticias';
@@ -22,6 +23,11 @@ function Home(){
             <div className='listaNoticias'>
                 <ListaCardsJuegos/>
 
+
+
+            </div>
+            <div className='footer-contenedorH'>
+            <Footer/>
             </div>
         </div>  
         </>

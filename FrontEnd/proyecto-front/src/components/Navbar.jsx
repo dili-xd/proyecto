@@ -7,9 +7,9 @@ function Navbar() {
         <>
            <nav className='navbar-contenedor'>
               <ul className='navbar-lista'>
-              <img  alt="" />
+              <img src="../src/assets/imgs/imgNavbar.png" alt="Navbar" />
 
-              <h1 className='titulo' onClick={()=>navigate("/home")}>Ahorropata</h1>
+              <h1 className='titulo' onClick={()=>navigate("/home")}>AhorrAsí</h1>
 
                 
                 <button className="btn-perfil" onClick={() => navigate('/perfil')}>Perfil</button>

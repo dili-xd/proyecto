@@ -34,7 +34,7 @@ function ListaCardsCursos() {
     }, []);
     async function inscribirCurso(id) {
         const yaInscrito = await usuarioInscrito(id);
-        if (yaInscrito) {
+        if (!yaInscrito) {
             Swal.fire({
                 title: 'ERROR!',
                 text: 'Ya te has inscrito a este curso',
